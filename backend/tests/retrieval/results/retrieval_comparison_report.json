@@ -1,0 +1,82 @@
+[
+  {
+    "query": "sci fi space",
+    "latency_ms": 105.00907897949219,
+    "tfidf_top_result": "Galaxy Quest",
+    "semantic_top_result": "Sphere",
+    "hybrid_top_result": "Galaxy Quest",
+    "hybrid_explanation_top_1": "Strong match across both keyword (Rank 1) and semantic similarity (Rank 9)."
+  },
+  {
+    "query": "superhero marvel",
+    "latency_ms": 26.563167572021484,
+    "tfidf_top_result": "X-Men",
+    "semantic_top_result": "Hulk",
+    "hybrid_top_result": "X2",
+    "hybrid_explanation_top_1": "Strong match across both keyword (Rank 2) and semantic similarity (Rank 3)."
+  },
+  {
+    "query": "scary terrifying ghost",
+    "latency_ms": 14.391183853149414,
+    "tfidf_top_result": "Don't Be Afraid of the Dark",
+    "semantic_top_result": "The Apparition",
+    "hybrid_top_result": "Scary Movie 3",
+    "hybrid_explanation_top_1": "Strong match across both keyword (Rank 3) and semantic similarity (Rank 5)."
+  },
+  {
+    "query": "mind bending",
+    "latency_ms": 14.139890670776367,
+    "tfidf_top_result": "Bending Steel",
+    "semantic_top_result": "A Beautiful Mind",
+    "hybrid_top_result": "Bending Steel",
+    "hybrid_explanation_top_1": "Strong match across both keyword (Rank 1) and semantic similarity (Rank 4)."
+  },
+  {
+    "query": "funny relationship",
+    "latency_ms": 13.35287094116211,
+    "tfidf_top_result": "Kevin Hart: Laugh at My Pain",
+    "semantic_top_result": "Punch-Drunk Love",
+    "hybrid_top_result": "Celeste & Jesse Forever",
+    "hybrid_explanation_top_1": "Strong match across both keyword (Rank 4) and semantic similarity (Rank 17)."
+  },
+  {
+    "query": "time travel",
+    "latency_ms": 12.671947479248047,
+    "tfidf_top_result": "Somewhere in Time",
+    "semantic_top_result": "Timecrimes",
+    "hybrid_top_result": "The Time Traveler's Wife",
+    "hybrid_explanation_top_1": "Strong match across both keyword (Rank 3) and semantic similarity (Rank 2)."
+  },
+  {
+    "query": "dinosaur theme park",
+    "latency_ms": 12.871980667114258,
+    "tfidf_top_result": "Jurassic World",
+    "semantic_top_result": "Jurassic Park",
+    "hybrid_top_result": "Jurassic World",
+    "hybrid_explanation_top_1": "Strong match across both keyword (Rank 1) and semantic similarity (Rank 2)."
+  },
+  {
+    "query": "heist casino",
+    "latency_ms": 12.840032577514648,
+    "tfidf_top_result": "The Good Thief",
+    "semantic_top_result": "The Good Thief",
+    "hybrid_top_result": "The Good Thief",
+    "hybrid_explanation_top_1": "Strong match across both keyword (Rank 1) and semantic similarity (Rank 1)."
+  },
+  {
+    "query": "artificial intelligence future",
+    "latency_ms": 13.47208023071289,
+    "tfidf_top_result": "Stealth",
+    "semantic_top_result": "I, Robot",
+    "hybrid_top_result": "A.I. Artificial Intelligence",
+    "hybrid_explanation_top_1": "Strong match across both keyword (Rank 2) and semantic similarity (Rank 3)."
+  },
+  {
+    "query": "world war battle",
+    "latency_ms": 13.257026672363281,
+    "tfidf_top_result": "Enemy at the Gates",
+    "semantic_top_result": "Downfall",
+    "hybrid_top_result": "Fury",
+    "hybrid_explanation_top_1": "Strong match across both keyword (Rank 9) and semantic similarity (Rank 4)."
+  }
+]

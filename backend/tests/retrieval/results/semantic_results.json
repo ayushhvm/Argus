@@ -1,0 +1,1262 @@
+[
+  {
+    "query": "sci fi space",
+    "latency_ms": 95.46089172363281,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 10153,
+        "title": "Sphere",
+        "score": 0.5251184701919556
+      },
+      {
+        "rank": 2,
+        "movie_id": 16911,
+        "title": "The Inhabited Island",
+        "score": 0.49391424655914307
+      },
+      {
+        "rank": 3,
+        "movie_id": 188927,
+        "title": "Star Trek Beyond",
+        "score": 0.4731248617172241
+      },
+      {
+        "rank": 4,
+        "movie_id": 152,
+        "title": "Star Trek: The Motion Picture",
+        "score": 0.4693455100059509
+      },
+      {
+        "rank": 5,
+        "movie_id": 2157,
+        "title": "Lost in Space",
+        "score": 0.44958844780921936
+      },
+      {
+        "rank": 6,
+        "movie_id": 679,
+        "title": "Aliens",
+        "score": 0.4432658851146698
+      },
+      {
+        "rank": 7,
+        "movie_id": 49047,
+        "title": "Gravity",
+        "score": 0.44212332367897034
+      },
+      {
+        "rank": 8,
+        "movie_id": 199,
+        "title": "Star Trek: First Contact",
+        "score": 0.44177377223968506
+      },
+      {
+        "rank": 9,
+        "movie_id": 926,
+        "title": "Galaxy Quest",
+        "score": 0.44109049439430237
+      },
+      {
+        "rank": 10,
+        "movie_id": 8870,
+        "title": "Red Planet",
+        "score": 0.44047555327415466
+      },
+      {
+        "rank": 11,
+        "movie_id": 55420,
+        "title": "Another Earth",
+        "score": 0.4370642304420471
+      },
+      {
+        "rank": 12,
+        "movie_id": 43630,
+        "title": "The Helix... Loaded",
+        "score": 0.436576783657074
+      },
+      {
+        "rank": 13,
+        "movie_id": 62,
+        "title": "2001: A Space Odyssey",
+        "score": 0.4324898421764374
+      },
+      {
+        "rank": 14,
+        "movie_id": 15800,
+        "title": "Trekkies",
+        "score": 0.42885756492614746
+      },
+      {
+        "rank": 15,
+        "movie_id": 698,
+        "title": "Moonraker",
+        "score": 0.4247332215309143
+      },
+      {
+        "rank": 16,
+        "movie_id": 6795,
+        "title": "Zathura: A Space Adventure",
+        "score": 0.4209958612918854
+      },
+      {
+        "rank": 17,
+        "movie_id": 593,
+        "title": "Solaris",
+        "score": 0.4209495186805725
+      },
+      {
+        "rank": 18,
+        "movie_id": 7453,
+        "title": "The Hitchhiker's Guide to the Galaxy",
+        "score": 0.4153326153755188
+      },
+      {
+        "rank": 19,
+        "movie_id": 157,
+        "title": "Star Trek III: The Search for Spock",
+        "score": 0.41478943824768066
+      },
+      {
+        "rank": 20,
+        "movie_id": 782,
+        "title": "Gattaca",
+        "score": 0.41314148902893066
+      }
+    ]
+  },
+  {
+    "query": "superhero marvel",
+    "latency_ms": 23.58102798461914,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 1927,
+        "title": "Hulk",
+        "score": 0.5911308526992798
+      },
+      {
+        "rank": 2,
+        "movie_id": 86304,
+        "title": "All Superheroes Must Die",
+        "score": 0.5416309833526611
+      },
+      {
+        "rank": 3,
+        "movie_id": 36658,
+        "title": "X2",
+        "score": 0.5407060384750366
+      },
+      {
+        "rank": 4,
+        "movie_id": 76170,
+        "title": "The Wolverine",
+        "score": 0.5400478839874268
+      },
+      {
+        "rank": 5,
+        "movie_id": 11411,
+        "title": "Superman IV: The Quest for Peace",
+        "score": 0.5377792119979858
+      },
+      {
+        "rank": 6,
+        "movie_id": 45132,
+        "title": "Super",
+        "score": 0.5341089367866516
+      },
+      {
+        "rank": 7,
+        "movie_id": 1452,
+        "title": "Superman Returns",
+        "score": 0.5208680033683777
+      },
+      {
+        "rank": 8,
+        "movie_id": 36657,
+        "title": "X-Men",
+        "score": 0.5168921947479248
+      },
+      {
+        "rank": 9,
+        "movie_id": 10195,
+        "title": "Thor",
+        "score": 0.4947539269924164
+      },
+      {
+        "rank": 10,
+        "movie_id": 415,
+        "title": "Batman & Robin",
+        "score": 0.49454814195632935
+      },
+      {
+        "rank": 11,
+        "movie_id": 209112,
+        "title": "Batman v Superman: Dawn of Justice",
+        "score": 0.49269646406173706
+      },
+      {
+        "rank": 12,
+        "movie_id": 2661,
+        "title": "Batman",
+        "score": 0.49190884828567505
+      },
+      {
+        "rank": 13,
+        "movie_id": 1979,
+        "title": "Fantastic 4: Rise of the Silver Surfer",
+        "score": 0.48452720046043396
+      },
+      {
+        "rank": 14,
+        "movie_id": 24428,
+        "title": "The Avengers",
+        "score": 0.4748776853084564
+      },
+      {
+        "rank": 15,
+        "movie_id": 11918,
+        "title": "Superhero Movie",
+        "score": 0.47032785415649414
+      },
+      {
+        "rank": 16,
+        "movie_id": 36668,
+        "title": "X-Men: The Last Stand",
+        "score": 0.4680485427379608
+      },
+      {
+        "rank": 17,
+        "movie_id": 558,
+        "title": "Spider-Man 2",
+        "score": 0.46280407905578613
+      },
+      {
+        "rank": 18,
+        "movie_id": 66942,
+        "title": "Griff the Invisible",
+        "score": 0.4579954743385315
+      },
+      {
+        "rank": 19,
+        "movie_id": 100402,
+        "title": "Captain America: The Winter Soldier",
+        "score": 0.45609694719314575
+      },
+      {
+        "rank": 20,
+        "movie_id": 1724,
+        "title": "The Incredible Hulk",
+        "score": 0.4487626254558563
+      }
+    ]
+  },
+  {
+    "query": "scary terrifying ghost",
+    "latency_ms": 8.360862731933594,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 79694,
+        "title": "The Apparition",
+        "score": 0.5257826447486877
+      },
+      {
+        "rank": 2,
+        "movie_id": 10008,
+        "title": "An American Haunting",
+        "score": 0.5196713209152222
+      },
+      {
+        "rank": 3,
+        "movie_id": 23827,
+        "title": "Paranormal Activity",
+        "score": 0.5152238011360168
+      },
+      {
+        "rank": 4,
+        "movie_id": 4232,
+        "title": "Scream",
+        "score": 0.4994199872016907
+      },
+      {
+        "rank": 5,
+        "movie_id": 4256,
+        "title": "Scary Movie 3",
+        "score": 0.4952761232852936
+      },
+      {
+        "rank": 6,
+        "movie_id": 12797,
+        "title": "Ghost Town",
+        "score": 0.48523032665252686
+      },
+      {
+        "rank": 7,
+        "movie_id": 9645,
+        "title": "Ghost Ship",
+        "score": 0.48305657505989075
+      },
+      {
+        "rank": 8,
+        "movie_id": 345911,
+        "title": "Lights Out",
+        "score": 0.479530394077301
+      },
+      {
+        "rank": 9,
+        "movie_id": 234212,
+        "title": "Demonic",
+        "score": 0.4787372350692749
+      },
+      {
+        "rank": 10,
+        "movie_id": 4248,
+        "title": "Scary Movie 2",
+        "score": 0.47825175523757935
+      },
+      {
+        "rank": 11,
+        "movie_id": 764,
+        "title": "The Evil Dead",
+        "score": 0.4745528995990753
+      },
+      {
+        "rank": 12,
+        "movie_id": 43074,
+        "title": "Ghostbusters",
+        "score": 0.47418200969696045
+      },
+      {
+        "rank": 13,
+        "movie_id": 150202,
+        "title": "The Haunting in Connecticut 2: Ghosts of Georgia",
+        "score": 0.4738406538963318
+      },
+      {
+        "rank": 14,
+        "movie_id": 323270,
+        "title": "The Horror Network Vol. 1",
+        "score": 0.47350502014160156
+      },
+      {
+        "rank": 15,
+        "movie_id": 242512,
+        "title": "Ouija",
+        "score": 0.47179827094078064
+      },
+      {
+        "rank": 16,
+        "movie_id": 377,
+        "title": "A Nightmare on Elm Street",
+        "score": 0.4660118520259857
+      },
+      {
+        "rank": 17,
+        "movie_id": 11618,
+        "title": "The Haunting",
+        "score": 0.46154797077178955
+      },
+      {
+        "rank": 18,
+        "movie_id": 227348,
+        "title": "Paranormal Activity: The Marked Ones",
+        "score": 0.45883992314338684
+      },
+      {
+        "rank": 19,
+        "movie_id": 72571,
+        "title": "Paranormal Activity 3",
+        "score": 0.457769513130188
+      },
+      {
+        "rank": 20,
+        "movie_id": 10885,
+        "title": "Shutter",
+        "score": 0.4566119909286499
+      }
+    ]
+  },
+  {
+    "query": "mind bending",
+    "latency_ms": 7.943153381347656,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 453,
+        "title": "A Beautiful Mind",
+        "score": 0.4009113311767578
+      },
+      {
+        "rank": 2,
+        "movie_id": 19724,
+        "title": "Imagine That",
+        "score": 0.36608028411865234
+      },
+      {
+        "rank": 3,
+        "movie_id": 331592,
+        "title": "Listening",
+        "score": 0.3610149323940277
+      },
+      {
+        "rank": 4,
+        "movie_id": 174362,
+        "title": "Bending Steel",
+        "score": 0.3429097831249237
+      },
+      {
+        "rank": 5,
+        "movie_id": 176077,
+        "title": "Enter the Dangerous Mind",
+        "score": 0.33488503098487854
+      },
+      {
+        "rank": 6,
+        "movie_id": 455,
+        "title": "Bend It Like Beckham",
+        "score": 0.320587158203125
+      },
+      {
+        "rank": 7,
+        "movie_id": 157353,
+        "title": "Transcendence",
+        "score": 0.3124438226222992
+      },
+      {
+        "rank": 8,
+        "movie_id": 8357,
+        "title": "What the #$*! Do We (K)now!?",
+        "score": 0.30134138464927673
+      },
+      {
+        "rank": 9,
+        "movie_id": 67660,
+        "title": "Think Like a Man",
+        "score": 0.3010728359222412
+      },
+      {
+        "rank": 10,
+        "movie_id": 320146,
+        "title": "Creative Control",
+        "score": 0.2872246205806732
+      },
+      {
+        "rank": 11,
+        "movie_id": 24940,
+        "title": "Head Over Heels",
+        "score": 0.27895912528038025
+      },
+      {
+        "rank": 12,
+        "movie_id": 9294,
+        "title": "Phenomenon",
+        "score": 0.27753502130508423
+      },
+      {
+        "rank": 13,
+        "movie_id": 36549,
+        "title": "Yesterday Was a Lie",
+        "score": 0.2739124894142151
+      },
+      {
+        "rank": 14,
+        "movie_id": 315011,
+        "title": "Shin Godzilla",
+        "score": 0.27375370264053345
+      },
+      {
+        "rank": 15,
+        "movie_id": 35199,
+        "title": "Wordplay",
+        "score": 0.27189937233924866
+      },
+      {
+        "rank": 16,
+        "movie_id": 18501,
+        "title": "Gamer",
+        "score": 0.2698372006416321
+      },
+      {
+        "rank": 17,
+        "movie_id": 3050,
+        "title": "Doctor Dolittle",
+        "score": 0.2680519223213196
+      },
+      {
+        "rank": 18,
+        "movie_id": 43306,
+        "title": "A Guy Named Joe",
+        "score": 0.2644410729408264
+      },
+      {
+        "rank": 19,
+        "movie_id": 40769,
+        "title": "Mutual Appreciation",
+        "score": 0.26340463757514954
+      },
+      {
+        "rank": 20,
+        "movie_id": 9271,
+        "title": "Virtuosity",
+        "score": 0.26184311509132385
+      }
+    ]
+  },
+  {
+    "query": "funny relationship",
+    "latency_ms": 8.317947387695312,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 8051,
+        "title": "Punch-Drunk Love",
+        "score": 0.3890889883041382
+      },
+      {
+        "rank": 2,
+        "movie_id": 225565,
+        "title": "That Awkward Moment",
+        "score": 0.3809565603733063
+      },
+      {
+        "rank": 3,
+        "movie_id": 13596,
+        "title": "My Best Friend's Girl",
+        "score": 0.37219369411468506
+      },
+      {
+        "rank": 4,
+        "movie_id": 11638,
+        "title": "Guess Who",
+        "score": 0.35586440563201904
+      },
+      {
+        "rank": 5,
+        "movie_id": 15122,
+        "title": "Love Stinks",
+        "score": 0.3417661786079407
+      },
+      {
+        "rank": 6,
+        "movie_id": 16538,
+        "title": "I Love You, Man",
+        "score": 0.34064358472824097
+      },
+      {
+        "rank": 7,
+        "movie_id": 32456,
+        "title": "Two Girls and a Guy",
+        "score": 0.33850982785224915
+      },
+      {
+        "rank": 8,
+        "movie_id": 14434,
+        "title": "I Think I Love My Wife",
+        "score": 0.33726513385772705
+      },
+      {
+        "rank": 9,
+        "movie_id": 84200,
+        "title": "For a Good Time, Call...",
+        "score": 0.3341693878173828
+      },
+      {
+        "rank": 10,
+        "movie_id": 9582,
+        "title": "A Guy Thing",
+        "score": 0.33149227499961853
+      },
+      {
+        "rank": 11,
+        "movie_id": 10472,
+        "title": "Down to You",
+        "score": 0.3307485580444336
+      },
+      {
+        "rank": 12,
+        "movie_id": 8461,
+        "title": "Funny Games",
+        "score": 0.33029359579086304
+      },
+      {
+        "rank": 13,
+        "movie_id": 15765,
+        "title": "What's Love Got to Do with It",
+        "score": 0.32878682017326355
+      },
+      {
+        "rank": 14,
+        "movie_id": 35688,
+        "title": "Why Did I Get Married Too?",
+        "score": 0.32762181758880615
+      },
+      {
+        "rank": 15,
+        "movie_id": 41630,
+        "title": "No Strings Attached",
+        "score": 0.3250201940536499
+      },
+      {
+        "rank": 16,
+        "movie_id": 12658,
+        "title": "Someone Like You...",
+        "score": 0.3247303366661072
+      },
+      {
+        "rank": 17,
+        "movie_id": 84184,
+        "title": "Celeste & Jesse Forever",
+        "score": 0.32440242171287537
+      },
+      {
+        "rank": 18,
+        "movie_id": 59968,
+        "title": "Our Idiot Brother",
+        "score": 0.32302993535995483
+      },
+      {
+        "rank": 19,
+        "movie_id": 158150,
+        "title": "How to Fall in Love",
+        "score": 0.32086268067359924
+      },
+      {
+        "rank": 20,
+        "movie_id": 639,
+        "title": "When Harry Met Sally...",
+        "score": 0.31933513283729553
+      }
+    ]
+  },
+  {
+    "query": "time travel",
+    "latency_ms": 7.951021194458008,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 14139,
+        "title": "Timecrimes",
+        "score": 0.5940233469009399
+      },
+      {
+        "rank": 2,
+        "movie_id": 24420,
+        "title": "The Time Traveler's Wife",
+        "score": 0.5827072262763977
+      },
+      {
+        "rank": 3,
+        "movie_id": 2135,
+        "title": "The Time Machine",
+        "score": 0.5726968050003052
+      },
+      {
+        "rank": 4,
+        "movie_id": 8831,
+        "title": "Timecop",
+        "score": 0.5598236322402954
+      },
+      {
+        "rank": 5,
+        "movie_id": 45767,
+        "title": "Time Changer",
+        "score": 0.5262048840522766
+      },
+      {
+        "rank": 6,
+        "movie_id": 122906,
+        "title": "About Time",
+        "score": 0.5248050093650818
+      },
+      {
+        "rank": 7,
+        "movie_id": 227719,
+        "title": "Project Almanac",
+        "score": 0.5189380049705505
+      },
+      {
+        "rank": 8,
+        "movie_id": 11687,
+        "title": "The Visitors",
+        "score": 0.49862051010131836
+      },
+      {
+        "rank": 9,
+        "movie_id": 16633,
+        "title": "Somewhere in Time",
+        "score": 0.4746057391166687
+      },
+      {
+        "rank": 10,
+        "movie_id": 13811,
+        "title": "Knowing",
+        "score": 0.4690741300582886
+      },
+      {
+        "rank": 11,
+        "movie_id": 49530,
+        "title": "In Time",
+        "score": 0.46260207891464233
+      },
+      {
+        "rank": 12,
+        "movie_id": 9562,
+        "title": "Timeline",
+        "score": 0.4561425447463989
+      },
+      {
+        "rank": 13,
+        "movie_id": 15028,
+        "title": "Clockstoppers",
+        "score": 0.4382694363594055
+      },
+      {
+        "rank": 14,
+        "movie_id": 23048,
+        "title": "Hot Tub Time Machine",
+        "score": 0.436659038066864
+      },
+      {
+        "rank": 15,
+        "movie_id": 165,
+        "title": "Back to the Future Part II",
+        "score": 0.4292736053466797
+      },
+      {
+        "rank": 16,
+        "movie_id": 27549,
+        "title": "Beastmaster 2: Through the Portal of Time",
+        "score": 0.4193999171257019
+      },
+      {
+        "rank": 17,
+        "movie_id": 82703,
+        "title": "Mr. Peabody & Sherman",
+        "score": 0.41592317819595337
+      },
+      {
+        "rank": 18,
+        "movie_id": 11232,
+        "title": "Kate & Leopold",
+        "score": 0.4098568856716156
+      },
+      {
+        "rank": 19,
+        "movie_id": 105,
+        "title": "Back to the Future",
+        "score": 0.40405380725860596
+      },
+      {
+        "rank": 20,
+        "movie_id": 70687,
+        "title": "The Sticky Fingers of Time",
+        "score": 0.399189293384552
+      }
+    ]
+  },
+  {
+    "query": "dinosaur theme park",
+    "latency_ms": 7.797956466674805,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 329,
+        "title": "Jurassic Park",
+        "score": 0.7198164463043213
+      },
+      {
+        "rank": 2,
+        "movie_id": 135397,
+        "title": "Jurassic World",
+        "score": 0.6405772566795349
+      },
+      {
+        "rank": 3,
+        "movie_id": 331,
+        "title": "Jurassic Park III",
+        "score": 0.5497134327888489
+      },
+      {
+        "rank": 4,
+        "movie_id": 105864,
+        "title": "The Good Dinosaur",
+        "score": 0.5487481355667114
+      },
+      {
+        "rank": 5,
+        "movie_id": 330,
+        "title": "The Lost World: Jurassic Park",
+        "score": 0.5134539604187012
+      },
+      {
+        "rank": 6,
+        "movie_id": 77951,
+        "title": "Walking With Dinosaurs",
+        "score": 0.4983103275299072
+      },
+      {
+        "rank": 7,
+        "movie_id": 8355,
+        "title": "Ice Age: Dawn of the Dinosaurs",
+        "score": 0.4974430501461029
+      },
+      {
+        "rank": 8,
+        "movie_id": 10567,
+        "title": "Dinosaur",
+        "score": 0.49741223454475403
+      },
+      {
+        "rank": 9,
+        "movie_id": 17644,
+        "title": "Barney's Great Adventure",
+        "score": 0.48279234766960144
+      },
+      {
+        "rank": 10,
+        "movie_id": 12144,
+        "title": "The Land Before Time",
+        "score": 0.45047470927238464
+      },
+      {
+        "rank": 11,
+        "movie_id": 35073,
+        "title": "The Beast from 20,000 Fathoms",
+        "score": 0.4157535433769226
+      },
+      {
+        "rank": 12,
+        "movie_id": 1593,
+        "title": "Night at the Museum",
+        "score": 0.4041702449321747
+      },
+      {
+        "rank": 13,
+        "movie_id": 953,
+        "title": "Madagascar",
+        "score": 0.3639509081840515
+      },
+      {
+        "rank": 14,
+        "movie_id": 181940,
+        "title": "Carousel of Revenge",
+        "score": 0.3573715090751648
+      },
+      {
+        "rank": 15,
+        "movie_id": 11153,
+        "title": "National Lampoon's Vacation",
+        "score": 0.3484436571598053
+      },
+      {
+        "rank": 16,
+        "movie_id": 9825,
+        "title": "Lake Placid",
+        "score": 0.34423935413360596
+      },
+      {
+        "rank": 17,
+        "movie_id": 78394,
+        "title": "Sea Rex 3D: Journey to a Prehistoric World",
+        "score": 0.33982548117637634
+      },
+      {
+        "rank": 18,
+        "movie_id": 296099,
+        "title": "Vacation",
+        "score": 0.3391685485839844
+      },
+      {
+        "rank": 19,
+        "movie_id": 16508,
+        "title": "Doug's 1st Movie",
+        "score": 0.32979142665863037
+      },
+      {
+        "rank": 20,
+        "movie_id": 44896,
+        "title": "Rango",
+        "score": 0.3244759440422058
+      }
+    ]
+  },
+  {
+    "query": "heist casino",
+    "latency_ms": 8.733272552490234,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 6016,
+        "title": "The Good Thief",
+        "score": 0.5250722765922546
+      },
+      {
+        "rank": 2,
+        "movie_id": 524,
+        "title": "Casino",
+        "score": 0.497059166431427
+      },
+      {
+        "rank": 3,
+        "movie_id": 336004,
+        "title": "Heist",
+        "score": 0.4934820234775543
+      },
+      {
+        "rank": 4,
+        "movie_id": 36557,
+        "title": "Casino Royale",
+        "score": 0.47146883606910706
+      },
+      {
+        "rank": 5,
+        "movie_id": 45324,
+        "title": "Casino Jack",
+        "score": 0.45524686574935913
+      },
+      {
+        "rank": 6,
+        "movie_id": 250066,
+        "title": "American Heist",
+        "score": 0.4529644250869751
+      },
+      {
+        "rank": 7,
+        "movie_id": 59108,
+        "title": "Tower Heist",
+        "score": 0.4403008818626404
+      },
+      {
+        "rank": 8,
+        "movie_id": 67373,
+        "title": "This Thing of Ours",
+        "score": 0.4360596537590027
+      },
+      {
+        "rank": 9,
+        "movie_id": 10220,
+        "title": "Rounders",
+        "score": 0.40485113859176636
+      },
+      {
+        "rank": 10,
+        "movie_id": 681,
+        "title": "Diamonds Are Forever",
+        "score": 0.39965933561325073
+      },
+      {
+        "rank": 11,
+        "movie_id": 27023,
+        "title": "Saint John of Las Vegas",
+        "score": 0.39018791913986206
+      },
+      {
+        "rank": 12,
+        "movie_id": 1950,
+        "title": "Lucky You",
+        "score": 0.3839886486530304
+      },
+      {
+        "rank": 13,
+        "movie_id": 284536,
+        "title": "The Gambler",
+        "score": 0.3814323842525482
+      },
+      {
+        "rank": 14,
+        "movie_id": 9896,
+        "title": "Rat Race",
+        "score": 0.3813279867172241
+      },
+      {
+        "rank": 15,
+        "movie_id": 356841,
+        "title": "Checkmate",
+        "score": 0.37681978940963745
+      },
+      {
+        "rank": 16,
+        "movie_id": 100,
+        "title": "Lock, Stock and Two Smoking Barrels",
+        "score": 0.35569578409194946
+      },
+      {
+        "rank": 17,
+        "movie_id": 29920,
+        "title": "Easy Money",
+        "score": 0.3535228967666626
+      },
+      {
+        "rank": 18,
+        "movie_id": 45138,
+        "title": "Machine Gun McCain",
+        "score": 0.35122835636138916
+      },
+      {
+        "rank": 19,
+        "movie_id": 11217,
+        "title": "Club Dread",
+        "score": 0.34772273898124695
+      },
+      {
+        "rank": 20,
+        "movie_id": 400,
+        "title": "Things to Do in Denver When You're Dead",
+        "score": 0.33794671297073364
+      }
+    ]
+  },
+  {
+    "query": "artificial intelligence future",
+    "latency_ms": 8.183002471923828,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 2048,
+        "title": "I, Robot",
+        "score": 0.47621282935142517
+      },
+      {
+        "rank": 2,
+        "movie_id": 262543,
+        "title": "Automata",
+        "score": 0.4542052745819092
+      },
+      {
+        "rank": 3,
+        "movie_id": 644,
+        "title": "A.I. Artificial Intelligence",
+        "score": 0.4335808753967285
+      },
+      {
+        "rank": 4,
+        "movie_id": 87101,
+        "title": "Terminator Genisys",
+        "score": 0.4282067120075226
+      },
+      {
+        "rank": 5,
+        "movie_id": 264660,
+        "title": "Ex Machina",
+        "score": 0.42171069979667664
+      },
+      {
+        "rank": 6,
+        "movie_id": 157353,
+        "title": "Transcendence",
+        "score": 0.41883838176727295
+      },
+      {
+        "rank": 7,
+        "movie_id": 2135,
+        "title": "The Time Machine",
+        "score": 0.4162869453430176
+      },
+      {
+        "rank": 8,
+        "movie_id": 9928,
+        "title": "Robots",
+        "score": 0.3781901001930237
+      },
+      {
+        "rank": 9,
+        "movie_id": 97020,
+        "title": "RoboCop",
+        "score": 0.36998146772384644
+      },
+      {
+        "rank": 10,
+        "movie_id": 10048,
+        "title": "Stealth",
+        "score": 0.3696167767047882
+      },
+      {
+        "rank": 11,
+        "movie_id": 603,
+        "title": "The Matrix",
+        "score": 0.3497023582458496
+      },
+      {
+        "rank": 12,
+        "movie_id": 331592,
+        "title": "Listening",
+        "score": 0.3356795310974121
+      },
+      {
+        "rank": 13,
+        "movie_id": 152601,
+        "title": "Her",
+        "score": 0.33271324634552
+      },
+      {
+        "rank": 14,
+        "movie_id": 19,
+        "title": "Metropolis",
+        "score": 0.3272983431816101
+      },
+      {
+        "rank": 15,
+        "movie_id": 1090,
+        "title": "The Thirteenth Floor",
+        "score": 0.3217533230781555
+      },
+      {
+        "rank": 16,
+        "movie_id": 1858,
+        "title": "Transformers",
+        "score": 0.31825944781303406
+      },
+      {
+        "rank": 17,
+        "movie_id": 9389,
+        "title": "Renaissance",
+        "score": 0.31638264656066895
+      },
+      {
+        "rank": 18,
+        "movie_id": 489,
+        "title": "Good Will Hunting",
+        "score": 0.3156781792640686
+      },
+      {
+        "rank": 19,
+        "movie_id": 11665,
+        "title": "Get Smart",
+        "score": 0.31451302766799927
+      },
+      {
+        "rank": 20,
+        "movie_id": 7512,
+        "title": "Idiocracy",
+        "score": 0.3117329776287079
+      }
+    ]
+  },
+  {
+    "query": "world war battle",
+    "latency_ms": 7.022857666015625,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 613,
+        "title": "Downfall",
+        "score": 0.49000054597854614
+      },
+      {
+        "rank": 2,
+        "movie_id": 5902,
+        "title": "A Bridge Too Far",
+        "score": 0.48585590720176697
+      },
+      {
+        "rank": 3,
+        "movie_id": 1251,
+        "title": "Letters from Iwo Jima",
+        "score": 0.4688381254673004
+      },
+      {
+        "rank": 4,
+        "movie_id": 228150,
+        "title": "Fury",
+        "score": 0.46579524874687195
+      },
+      {
+        "rank": 5,
+        "movie_id": 76758,
+        "title": "The Flowers of War",
+        "score": 0.460019588470459
+      },
+      {
+        "rank": 6,
+        "movie_id": 57212,
+        "title": "War Horse",
+        "score": 0.4552709460258484
+      },
+      {
+        "rank": 7,
+        "movie_id": 10105,
+        "title": "Saints and Soldiers",
+        "score": 0.44416970014572144
+      },
+      {
+        "rank": 8,
+        "movie_id": 10590,
+        "title": "We Were Soldiers",
+        "score": 0.4357197880744934
+      },
+      {
+        "rank": 9,
+        "movie_id": 11202,
+        "title": "Patton",
+        "score": 0.4331212043762207
+      },
+      {
+        "rank": 10,
+        "movie_id": 11398,
+        "title": "The Art of War",
+        "score": 0.4209287464618683
+      },
+      {
+        "rank": 11,
+        "movie_id": 68735,
+        "title": "Warcraft",
+        "score": 0.419632226228714
+      },
+      {
+        "rank": 12,
+        "movie_id": 11165,
+        "title": "Tora! Tora! Tora!",
+        "score": 0.4121738076210022
+      },
+      {
+        "rank": 13,
+        "movie_id": 407887,
+        "title": "Operation Chromite",
+        "score": 0.4121688902378082
+      },
+      {
+        "rank": 14,
+        "movie_id": 9289,
+        "title": "The Longest Day",
+        "score": 0.4105813205242157
+      },
+      {
+        "rank": 15,
+        "movie_id": 13191,
+        "title": "War, Inc.",
+        "score": 0.4078906774520874
+      },
+      {
+        "rank": 16,
+        "movie_id": 11519,
+        "title": "1941",
+        "score": 0.40783315896987915
+      },
+      {
+        "rank": 17,
+        "movie_id": 74,
+        "title": "War of the Worlds",
+        "score": 0.4000933766365051
+      },
+      {
+        "rank": 18,
+        "movie_id": 3536,
+        "title": "U-571",
+        "score": 0.3975905179977417
+      },
+      {
+        "rank": 19,
+        "movie_id": 676,
+        "title": "Pearl Harbor",
+        "score": 0.3940486013889313
+      },
+      {
+        "rank": 20,
+        "movie_id": 72190,
+        "title": "World War Z",
+        "score": 0.3908735513687134
+      }
+    ]
+  }
+]

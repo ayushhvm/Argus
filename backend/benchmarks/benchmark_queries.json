@@ -1,0 +1,42 @@
+[
+  {
+    "query": "sci fi space",
+    "relevant_movies": ["Galaxy Quest", "Star Trek Beyond", "Lockout", "Logan's Run", "Sphere"]
+  },
+  {
+    "query": "superhero marvel",
+    "relevant_movies": ["X-Men", "X2", "The Wolverine", "Hulk", "Spider-Man"]
+  },
+  {
+    "query": "scary terrifying ghost",
+    "relevant_movies": ["Don't Be Afraid of the Dark", "The Apparition", "Paranormal Activity", "Poltergeist"]
+  },
+  {
+    "query": "mind bending",
+    "relevant_movies": ["A Beautiful Mind", "Donnie Darko", "Inception", "The Matrix", "Bending Steel"]
+  },
+  {
+    "query": "funny relationship",
+    "relevant_movies": ["Punch-Drunk Love", "Celeste & Jesse Forever", "That Awkward Moment", "My Best Friend's Girl"]
+  },
+  {
+    "query": "time travel",
+    "relevant_movies": ["Somewhere in Time", "Timecop", "The Time Traveler's Wife", "Timecrimes", "Men in Black 3"]
+  },
+  {
+    "query": "dinosaur theme park",
+    "relevant_movies": ["Jurassic Park", "Jurassic World", "Jurassic Park III", "The Lost World: Jurassic Park"]
+  },
+  {
+    "query": "heist casino",
+    "relevant_movies": ["The Good Thief", "Heist", "Ocean's Thirteen", "Casino", "Ocean's Eleven"]
+  },
+  {
+    "query": "artificial intelligence future",
+    "relevant_movies": ["I, Robot", "A.I. Artificial Intelligence", "Automata", "Ex Machina", "Stealth"]
+  },
+  {
+    "query": "world war battle",
+    "relevant_movies": ["Enemy at the Gates", "Downfall", "A Bridge Too Far", "Letters from Iwo Jima", "Fury"]
+  }
+]

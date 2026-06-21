@@ -1,0 +1,522 @@
+[
+  {
+    "query": "sci fi space",
+    "expanded_query": "alien fi future sci science fiction space technology",
+    "latency_ms": 105.00907897949219,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 926,
+        "title": "Galaxy Quest",
+        "rrf_score": 0.030886196246139225,
+        "tfidf_rank": 1,
+        "semantic_rank": 9,
+        "explanation": "Strong match across both keyword (Rank 1) and semantic similarity (Rank 9)."
+      },
+      {
+        "rank": 2,
+        "movie_id": 679,
+        "title": "Aliens",
+        "rrf_score": 0.028850145288501453,
+        "tfidf_rank": 13,
+        "semantic_rank": 6,
+        "explanation": "Strong match across both keyword (Rank 13) and semantic similarity (Rank 6)."
+      },
+      {
+        "rank": 3,
+        "movie_id": 10153,
+        "title": "Sphere",
+        "rrf_score": 0.02844163539403516,
+        "tfidf_rank": 23,
+        "semantic_rank": 1,
+        "explanation": "Strong match across both keyword (Rank 23) and semantic similarity (Rank 1)."
+      },
+      {
+        "rank": 4,
+        "movie_id": 782,
+        "title": "Gattaca",
+        "rrf_score": 0.027425373134328357,
+        "tfidf_rank": 7,
+        "semantic_rank": 20,
+        "explanation": "Strong match across both keyword (Rank 7) and semantic similarity (Rank 20)."
+      },
+      {
+        "rank": 5,
+        "movie_id": 2157,
+        "title": "Lost in Space",
+        "rrf_score": 0.026878868258178604,
+        "tfidf_rank": 27,
+        "semantic_rank": 5,
+        "explanation": "Strong match across both keyword (Rank 27) and semantic similarity (Rank 5)."
+      }
+    ]
+  },
+  {
+    "query": "superhero marvel",
+    "expanded_query": "comic dc hero marvel mutant superhero superpower",
+    "latency_ms": 26.563167572021484,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 36658,
+        "title": "X2",
+        "rrf_score": 0.03200204813108039,
+        "tfidf_rank": 2,
+        "semantic_rank": 3,
+        "explanation": "Strong match across both keyword (Rank 2) and semantic similarity (Rank 3)."
+      },
+      {
+        "rank": 2,
+        "movie_id": 76170,
+        "title": "The Wolverine",
+        "rrf_score": 0.03149801587301587,
+        "tfidf_rank": 3,
+        "semantic_rank": 4,
+        "explanation": "Strong match across both keyword (Rank 3) and semantic similarity (Rank 4)."
+      },
+      {
+        "rank": 3,
+        "movie_id": 36657,
+        "title": "X-Men",
+        "rrf_score": 0.031099324975891997,
+        "tfidf_rank": 1,
+        "semantic_rank": 8,
+        "explanation": "Strong match across both keyword (Rank 1) and semantic similarity (Rank 8)."
+      },
+      {
+        "rank": 4,
+        "movie_id": 10195,
+        "title": "Thor",
+        "rrf_score": 0.02919863597612958,
+        "tfidf_rank": 8,
+        "semantic_rank": 9,
+        "explanation": "Strong match across both keyword (Rank 8) and semantic similarity (Rank 9)."
+      },
+      {
+        "rank": 5,
+        "movie_id": 11918,
+        "title": "Superhero Movie",
+        "rrf_score": 0.02871794871794872,
+        "tfidf_rank": 5,
+        "semantic_rank": 15,
+        "explanation": "Strong match across both keyword (Rank 5) and semantic similarity (Rank 15)."
+      }
+    ]
+  },
+  {
+    "query": "scary terrifying ghost",
+    "expanded_query": "creepy ghost horror monster scary terrifying",
+    "latency_ms": 14.391183853149414,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 4256,
+        "title": "Scary Movie 3",
+        "rrf_score": 0.03125763125763126,
+        "tfidf_rank": 3,
+        "semantic_rank": 5,
+        "explanation": "Strong match across both keyword (Rank 3) and semantic similarity (Rank 5)."
+      },
+      {
+        "rank": 2,
+        "movie_id": 9645,
+        "title": "Ghost Ship",
+        "rrf_score": 0.029850746268656716,
+        "tfidf_rank": 7,
+        "semantic_rank": 7,
+        "explanation": "Strong match across both keyword (Rank 7) and semantic similarity (Rank 7)."
+      },
+      {
+        "rank": 3,
+        "movie_id": 79694,
+        "title": "The Apparition",
+        "rrf_score": 0.029551337359792925,
+        "tfidf_rank": 16,
+        "semantic_rank": 1,
+        "explanation": "Strong match across both keyword (Rank 16) and semantic similarity (Rank 1)."
+      },
+      {
+        "rank": 4,
+        "movie_id": 4248,
+        "title": "Scary Movie 2",
+        "rrf_score": 0.029437229437229435,
+        "tfidf_rank": 6,
+        "semantic_rank": 10,
+        "explanation": "Strong match across both keyword (Rank 6) and semantic similarity (Rank 10)."
+      },
+      {
+        "rank": 5,
+        "movie_id": 323270,
+        "title": "The Horror Network Vol. 1",
+        "rrf_score": 0.0288981288981289,
+        "tfidf_rank": 5,
+        "semantic_rank": 14,
+        "explanation": "Strong match across both keyword (Rank 5) and semantic similarity (Rank 14)."
+      }
+    ]
+  },
+  {
+    "query": "mind bending",
+    "expanded_query": "bending complex mind plot twist psychological thriller",
+    "latency_ms": 14.139890670776367,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 174362,
+        "title": "Bending Steel",
+        "rrf_score": 0.032018442622950824,
+        "tfidf_rank": 1,
+        "semantic_rank": 4,
+        "explanation": "Strong match across both keyword (Rank 1) and semantic similarity (Rank 4)."
+      },
+      {
+        "rank": 2,
+        "movie_id": 176077,
+        "title": "Enter the Dangerous Mind",
+        "rrf_score": 0.03125763125763126,
+        "tfidf_rank": 3,
+        "semantic_rank": 5,
+        "explanation": "Strong match across both keyword (Rank 3) and semantic similarity (Rank 5)."
+      },
+      {
+        "rank": 3,
+        "movie_id": 331592,
+        "title": "Listening",
+        "rrf_score": 0.030158730158730156,
+        "tfidf_rank": 10,
+        "semantic_rank": 3,
+        "explanation": "Strong match across both keyword (Rank 10) and semantic similarity (Rank 3)."
+      },
+      {
+        "rank": 4,
+        "movie_id": 157353,
+        "title": "Transcendence",
+        "rrf_score": 0.028814262023217248,
+        "tfidf_rank": 12,
+        "semantic_rank": 7,
+        "explanation": "Strong match across both keyword (Rank 12) and semantic similarity (Rank 7)."
+      },
+      {
+        "rank": 5,
+        "movie_id": 35199,
+        "title": "Wordplay",
+        "rrf_score": 0.02871794871794872,
+        "tfidf_rank": 5,
+        "semantic_rank": 15,
+        "explanation": "Strong match across both keyword (Rank 5) and semantic similarity (Rank 15)."
+      }
+    ]
+  },
+  {
+    "query": "funny relationship",
+    "expanded_query": "comedy funny hilarious humor laugh relationship",
+    "latency_ms": 13.35287094116211,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 84184,
+        "title": "Celeste & Jesse Forever",
+        "rrf_score": 0.028612012987012988,
+        "tfidf_rank": 4,
+        "semantic_rank": 17,
+        "explanation": "Strong match across both keyword (Rank 4) and semantic similarity (Rank 17)."
+      },
+      {
+        "rank": 2,
+        "movie_id": 8461,
+        "title": "Funny Games",
+        "rrf_score": 0.02758751902587519,
+        "tfidf_rank": 13,
+        "semantic_rank": 12,
+        "explanation": "Strong match across both keyword (Rank 13) and semantic similarity (Rank 12)."
+      },
+      {
+        "rank": 3,
+        "movie_id": 41630,
+        "title": "No Strings Attached",
+        "rrf_score": 0.027417840375586856,
+        "tfidf_rank": 11,
+        "semantic_rank": 15,
+        "explanation": "Strong match across both keyword (Rank 11) and semantic similarity (Rank 15)."
+      },
+      {
+        "rank": 4,
+        "movie_id": 17768,
+        "title": "A Funny Thing Happened on the Way to the Forum",
+        "rrf_score": 0.02424331472230385,
+        "tfidf_rank": 23,
+        "semantic_rank": 22,
+        "explanation": "Strong match across both keyword (Rank 23) and semantic similarity (Rank 22)."
+      },
+      {
+        "rank": 5,
+        "movie_id": 84200,
+        "title": "For a Good Time, Call...",
+        "rrf_score": 0.02383854801571177,
+        "tfidf_rank": 47,
+        "semantic_rank": 9,
+        "explanation": "Strong match across both keyword (Rank 47) and semantic similarity (Rank 9)."
+      }
+    ]
+  },
+  {
+    "query": "time travel",
+    "expanded_query": "time travel",
+    "latency_ms": 12.671947479248047,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 24420,
+        "title": "The Time Traveler's Wife",
+        "rrf_score": 0.03200204813108039,
+        "tfidf_rank": 3,
+        "semantic_rank": 2,
+        "explanation": "Strong match across both keyword (Rank 3) and semantic similarity (Rank 2)."
+      },
+      {
+        "rank": 2,
+        "movie_id": 8831,
+        "title": "Timecop",
+        "rrf_score": 0.031754032258064516,
+        "tfidf_rank": 2,
+        "semantic_rank": 4,
+        "explanation": "Strong match across both keyword (Rank 2) and semantic similarity (Rank 4)."
+      },
+      {
+        "rank": 3,
+        "movie_id": 16633,
+        "title": "Somewhere in Time",
+        "rrf_score": 0.030886196246139225,
+        "tfidf_rank": 1,
+        "semantic_rank": 9,
+        "explanation": "Strong match across both keyword (Rank 1) and semantic similarity (Rank 9)."
+      },
+      {
+        "rank": 4,
+        "movie_id": 14139,
+        "title": "Timecrimes",
+        "rrf_score": 0.030886196246139225,
+        "tfidf_rank": 9,
+        "semantic_rank": 1,
+        "explanation": "Strong match across both keyword (Rank 9) and semantic similarity (Rank 1)."
+      },
+      {
+        "rank": 5,
+        "movie_id": 122906,
+        "title": "About Time",
+        "rrf_score": 0.03007688828584351,
+        "tfidf_rank": 7,
+        "semantic_rank": 6,
+        "explanation": "Strong match across both keyword (Rank 7) and semantic similarity (Rank 6)."
+      }
+    ]
+  },
+  {
+    "query": "dinosaur theme park",
+    "expanded_query": "dinosaur park theme",
+    "latency_ms": 12.871980667114258,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 135397,
+        "title": "Jurassic World",
+        "rrf_score": 0.03252247488101534,
+        "tfidf_rank": 1,
+        "semantic_rank": 2,
+        "explanation": "Strong match across both keyword (Rank 1) and semantic similarity (Rank 2)."
+      },
+      {
+        "rank": 2,
+        "movie_id": 329,
+        "title": "Jurassic Park",
+        "rrf_score": 0.03252247488101534,
+        "tfidf_rank": 2,
+        "semantic_rank": 1,
+        "explanation": "Strong match across both keyword (Rank 2) and semantic similarity (Rank 1)."
+      },
+      {
+        "rank": 3,
+        "movie_id": 331,
+        "title": "Jurassic Park III",
+        "rrf_score": 0.03125763125763126,
+        "tfidf_rank": 5,
+        "semantic_rank": 3,
+        "explanation": "Strong match across both keyword (Rank 5) and semantic similarity (Rank 3)."
+      },
+      {
+        "rank": 4,
+        "movie_id": 105864,
+        "title": "The Good Dinosaur",
+        "rrf_score": 0.030776515151515152,
+        "tfidf_rank": 6,
+        "semantic_rank": 4,
+        "explanation": "Strong match across both keyword (Rank 6) and semantic similarity (Rank 4)."
+      },
+      {
+        "rank": 5,
+        "movie_id": 10567,
+        "title": "Dinosaur",
+        "rrf_score": 0.030330882352941176,
+        "tfidf_rank": 4,
+        "semantic_rank": 8,
+        "explanation": "Strong match across both keyword (Rank 4) and semantic similarity (Rank 8)."
+      }
+    ]
+  },
+  {
+    "query": "heist casino",
+    "expanded_query": "casino heist",
+    "latency_ms": 12.840032577514648,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 6016,
+        "title": "The Good Thief",
+        "rrf_score": 0.03278688524590164,
+        "tfidf_rank": 1,
+        "semantic_rank": 1,
+        "explanation": "Strong match across both keyword (Rank 1) and semantic similarity (Rank 1)."
+      },
+      {
+        "rank": 2,
+        "movie_id": 336004,
+        "title": "Heist",
+        "rrf_score": 0.03200204813108039,
+        "tfidf_rank": 2,
+        "semantic_rank": 3,
+        "explanation": "Strong match across both keyword (Rank 2) and semantic similarity (Rank 3)."
+      },
+      {
+        "rank": 3,
+        "movie_id": 67373,
+        "title": "This Thing of Ours",
+        "rrf_score": 0.029857397504456328,
+        "tfidf_rank": 6,
+        "semantic_rank": 8,
+        "explanation": "Strong match across both keyword (Rank 6) and semantic similarity (Rank 8)."
+      },
+      {
+        "rank": 4,
+        "movie_id": 45324,
+        "title": "Casino Jack",
+        "rrf_score": 0.028205128205128206,
+        "tfidf_rank": 18,
+        "semantic_rank": 5,
+        "explanation": "Strong match across both keyword (Rank 18) and semantic similarity (Rank 5)."
+      },
+      {
+        "rank": 5,
+        "movie_id": 9896,
+        "title": "Rat Race",
+        "rrf_score": 0.027598020555767037,
+        "tfidf_rank": 11,
+        "semantic_rank": 14,
+        "explanation": "Strong match across both keyword (Rank 11) and semantic similarity (Rank 14)."
+      }
+    ]
+  },
+  {
+    "query": "artificial intelligence future",
+    "expanded_query": "artificial future intelligence",
+    "latency_ms": 13.47208023071289,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 644,
+        "title": "A.I. Artificial Intelligence",
+        "rrf_score": 0.03200204813108039,
+        "tfidf_rank": 2,
+        "semantic_rank": 3,
+        "explanation": "Strong match across both keyword (Rank 2) and semantic similarity (Rank 3)."
+      },
+      {
+        "rank": 2,
+        "movie_id": 262543,
+        "title": "Automata",
+        "rrf_score": 0.031754032258064516,
+        "tfidf_rank": 4,
+        "semantic_rank": 2,
+        "explanation": "Strong match across both keyword (Rank 4) and semantic similarity (Rank 2)."
+      },
+      {
+        "rank": 3,
+        "movie_id": 264660,
+        "title": "Ex Machina",
+        "rrf_score": 0.03125763125763126,
+        "tfidf_rank": 3,
+        "semantic_rank": 5,
+        "explanation": "Strong match across both keyword (Rank 3) and semantic similarity (Rank 5)."
+      },
+      {
+        "rank": 4,
+        "movie_id": 87101,
+        "title": "Terminator Genisys",
+        "rrf_score": 0.031009615384615385,
+        "tfidf_rank": 5,
+        "semantic_rank": 4,
+        "explanation": "Strong match across both keyword (Rank 5) and semantic similarity (Rank 4)."
+      },
+      {
+        "rank": 5,
+        "movie_id": 10048,
+        "title": "Stealth",
+        "rrf_score": 0.030679156908665108,
+        "tfidf_rank": 1,
+        "semantic_rank": 10,
+        "explanation": "Strong match across both keyword (Rank 1) and semantic similarity (Rank 10)."
+      }
+    ]
+  },
+  {
+    "query": "world war battle",
+    "expanded_query": "battle war world",
+    "latency_ms": 13.257026672363281,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 228150,
+        "title": "Fury",
+        "rrf_score": 0.030117753623188408,
+        "tfidf_rank": 9,
+        "semantic_rank": 4,
+        "explanation": "Strong match across both keyword (Rank 9) and semantic similarity (Rank 4)."
+      },
+      {
+        "rank": 2,
+        "movie_id": 1251,
+        "title": "Letters from Iwo Jima",
+        "rrf_score": 0.029386529386529386,
+        "tfidf_rank": 14,
+        "semantic_rank": 3,
+        "explanation": "Strong match across both keyword (Rank 14) and semantic similarity (Rank 3)."
+      },
+      {
+        "rank": 3,
+        "movie_id": 3536,
+        "title": "U-571",
+        "rrf_score": 0.028949545078577336,
+        "tfidf_rank": 2,
+        "semantic_rank": 18,
+        "explanation": "Strong match across both keyword (Rank 2) and semantic similarity (Rank 18)."
+      },
+      {
+        "rank": 4,
+        "movie_id": 10105,
+        "title": "Saints and Soldiers",
+        "rrf_score": 0.027583600982429624,
+        "tfidf_rank": 19,
+        "semantic_rank": 7,
+        "explanation": "Strong match across both keyword (Rank 19) and semantic similarity (Rank 7)."
+      },
+      {
+        "rank": 5,
+        "movie_id": 853,
+        "title": "Enemy at the Gates",
+        "rrf_score": 0.026919758412424506,
+        "tfidf_rank": 1,
+        "semantic_rank": 35,
+        "explanation": "Strong match across both keyword (Rank 1) and semantic similarity (Rank 35)."
+      }
+    ]
+  }
+]

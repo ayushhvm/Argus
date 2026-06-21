@@ -1,0 +1,372 @@
+[
+  {
+    "query": "sci fi space",
+    "expanded_query": "alien fi future sci science fiction space technology",
+    "latency_ms": 3.8042068481445312,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 926,
+        "title": "Galaxy Quest",
+        "score": 0.31272405586565055
+      },
+      {
+        "rank": 2,
+        "movie_id": 8452,
+        "title": "The 6th Day",
+        "score": 0.2545721839509236
+      },
+      {
+        "rank": 3,
+        "movie_id": 10803,
+        "title": "Logan's Run",
+        "score": 0.2086305169380491
+      },
+      {
+        "rank": 4,
+        "movie_id": 81796,
+        "title": "Lockout",
+        "score": 0.208103261811073
+      },
+      {
+        "rank": 5,
+        "movie_id": 18841,
+        "title": "The Lost Skeleton of Cadavra",
+        "score": 0.20405420008188987
+      }
+    ]
+  },
+  {
+    "query": "superhero marvel",
+    "expanded_query": "comic dc hero marvel mutant superhero superpower",
+    "latency_ms": 1.8758773803710938,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 36657,
+        "title": "X-Men",
+        "score": 0.24579486231680242
+      },
+      {
+        "rank": 2,
+        "movie_id": 36658,
+        "title": "X2",
+        "score": 0.19201710559814672
+      },
+      {
+        "rank": 3,
+        "movie_id": 76170,
+        "title": "The Wolverine",
+        "score": 0.16754681757152165
+      },
+      {
+        "rank": 4,
+        "movie_id": 49521,
+        "title": "Man of Steel",
+        "score": 0.16658284172249802
+      },
+      {
+        "rank": 5,
+        "movie_id": 11918,
+        "title": "Superhero Movie",
+        "score": 0.15739028021176252
+      }
+    ]
+  },
+  {
+    "query": "scary terrifying ghost",
+    "expanded_query": "creepy ghost horror monster scary terrifying",
+    "latency_ms": 1.6820430755615234,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 46261,
+        "title": "Don't Be Afraid of the Dark",
+        "score": 0.17997585112940742
+      },
+      {
+        "rank": 2,
+        "movie_id": 9297,
+        "title": "Monster House",
+        "score": 0.17247392328254044
+      },
+      {
+        "rank": 3,
+        "movie_id": 4256,
+        "title": "Scary Movie 3",
+        "score": 0.1629057588638361
+      },
+      {
+        "rank": 4,
+        "movie_id": 77459,
+        "title": "A Monster in Paris",
+        "score": 0.14423697296223686
+      },
+      {
+        "rank": 5,
+        "movie_id": 323270,
+        "title": "The Horror Network Vol. 1",
+        "score": 0.13859517900271753
+      }
+    ]
+  },
+  {
+    "query": "mind bending",
+    "expanded_query": "bending complex mind plot twist psychological thriller",
+    "latency_ms": 1.7657279968261719,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 174362,
+        "title": "Bending Steel",
+        "score": 0.23126522743722175
+      },
+      {
+        "rank": 2,
+        "movie_id": 188652,
+        "title": "The Ghastly Love of Johnny X",
+        "score": 0.17575963390527483
+      },
+      {
+        "rank": 3,
+        "movie_id": 176077,
+        "title": "Enter the Dangerous Mind",
+        "score": 0.157019953555371
+      },
+      {
+        "rank": 4,
+        "movie_id": 75674,
+        "title": "Act of Valor",
+        "score": 0.1139833483264126
+      },
+      {
+        "rank": 5,
+        "movie_id": 35199,
+        "title": "Wordplay",
+        "score": 0.11187800083631724
+      }
+    ]
+  },
+  {
+    "query": "funny relationship",
+    "expanded_query": "comedy funny hilarious humor laugh relationship",
+    "latency_ms": 1.6088485717773438,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 74510,
+        "title": "Kevin Hart: Laugh at My Pain",
+        "score": 0.2576248250878804
+      },
+      {
+        "rank": 2,
+        "movie_id": 41469,
+        "title": "Next Stop Wonderland",
+        "score": 0.12545861683288947
+      },
+      {
+        "rank": 3,
+        "movie_id": 10312,
+        "title": "Patch Adams",
+        "score": 0.12141828031625476
+      },
+      {
+        "rank": 4,
+        "movie_id": 84184,
+        "title": "Celeste & Jesse Forever",
+        "score": 0.11691882358181407
+      },
+      {
+        "rank": 5,
+        "movie_id": 27455,
+        "title": "Foolish",
+        "score": 0.1141770207553404
+      }
+    ]
+  },
+  {
+    "query": "time travel",
+    "expanded_query": "time travel",
+    "latency_ms": 1.5451908111572266,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 16633,
+        "title": "Somewhere in Time",
+        "score": 0.35908108225958
+      },
+      {
+        "rank": 2,
+        "movie_id": 8831,
+        "title": "Timecop",
+        "score": 0.29294327252239627
+      },
+      {
+        "rank": 3,
+        "movie_id": 24420,
+        "title": "The Time Traveler's Wife",
+        "score": 0.2864961991666596
+      },
+      {
+        "rank": 4,
+        "movie_id": 41154,
+        "title": "Men in Black 3",
+        "score": 0.2766337514848062
+      },
+      {
+        "rank": 5,
+        "movie_id": 84332,
+        "title": "Safety Not Guaranteed",
+        "score": 0.26415864693750934
+      }
+    ]
+  },
+  {
+    "query": "dinosaur theme park",
+    "expanded_query": "dinosaur park theme",
+    "latency_ms": 1.6009807586669922,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 135397,
+        "title": "Jurassic World",
+        "score": 0.4177498603702827
+      },
+      {
+        "rank": 2,
+        "movie_id": 329,
+        "title": "Jurassic Park",
+        "score": 0.3977508955897386
+      },
+      {
+        "rank": 3,
+        "movie_id": 296099,
+        "title": "Vacation",
+        "score": 0.21901940631224753
+      },
+      {
+        "rank": 4,
+        "movie_id": 10567,
+        "title": "Dinosaur",
+        "score": 0.19864314878506878
+      },
+      {
+        "rank": 5,
+        "movie_id": 331,
+        "title": "Jurassic Park III",
+        "score": 0.18855801128708555
+      }
+    ]
+  },
+  {
+    "query": "heist casino",
+    "expanded_query": "casino heist",
+    "latency_ms": 1.6498565673828125,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 6016,
+        "title": "The Good Thief",
+        "score": 0.3460998043191382
+      },
+      {
+        "rank": 2,
+        "movie_id": 336004,
+        "title": "Heist",
+        "score": 0.2843250336675331
+      },
+      {
+        "rank": 3,
+        "movie_id": 256687,
+        "title": "Swelter",
+        "score": 0.24418010279888608
+      },
+      {
+        "rank": 4,
+        "movie_id": 298,
+        "title": "Ocean's Thirteen",
+        "score": 0.2143872962887909
+      },
+      {
+        "rank": 5,
+        "movie_id": 31640,
+        "title": "Blood and Wine",
+        "score": 0.20913745014408508
+      }
+    ]
+  },
+  {
+    "query": "artificial intelligence future",
+    "expanded_query": "artificial future intelligence",
+    "latency_ms": 1.5430450439453125,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 10048,
+        "title": "Stealth",
+        "score": 0.2838460816389521
+      },
+      {
+        "rank": 2,
+        "movie_id": 644,
+        "title": "A.I. Artificial Intelligence",
+        "score": 0.23002825880409666
+      },
+      {
+        "rank": 3,
+        "movie_id": 264660,
+        "title": "Ex Machina",
+        "score": 0.22668847342876589
+      },
+      {
+        "rank": 4,
+        "movie_id": 262543,
+        "title": "Automata",
+        "score": 0.22232047699652285
+      },
+      {
+        "rank": 5,
+        "movie_id": 87101,
+        "title": "Terminator Genisys",
+        "score": 0.21842866917381054
+      }
+    ]
+  },
+  {
+    "query": "world war battle",
+    "expanded_query": "battle war world",
+    "latency_ms": 1.5919208526611328,
+    "retrieved_documents": [
+      {
+        "rank": 1,
+        "movie_id": 853,
+        "title": "Enemy at the Gates",
+        "score": 0.28372103133269905
+      },
+      {
+        "rank": 2,
+        "movie_id": 3536,
+        "title": "U-571",
+        "score": 0.28212985995652695
+      },
+      {
+        "rank": 3,
+        "movie_id": 8741,
+        "title": "The Thin Red Line",
+        "score": 0.2687338200678266
+      },
+      {
+        "rank": 4,
+        "movie_id": 12100,
+        "title": "Windtalkers",
+        "score": 0.2397725490125799
+      },
+      {
+        "rank": 5,
+        "movie_id": 9665,
+        "title": "Glory",
+        "score": 0.23181837602587976
+      }
+    ]
+  }
+]

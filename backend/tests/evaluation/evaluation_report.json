@@ -1,0 +1,334 @@
+{
+  "aggregate_metrics": {
+    "TF-IDF": {
+      "Precision@5": 0.48,
+      "Recall@5": 0.505,
+      "MRR": 0.925,
+      "NDCG@5": 0.5838869948995338,
+      "Latency": 3.0751705169677734
+    },
+    "Semantic": {
+      "Precision@5": 0.5999999999999999,
+      "Recall@5": 0.6449999999999999,
+      "MRR": 1.0,
+      "NDCG@5": 0.7193780106594354,
+      "Latency": 19.73412036895752
+    },
+    "Hybrid": {
+      "Precision@5": 0.48,
+      "Recall@5": 0.505,
+      "MRR": 0.9333333333333333,
+      "NDCG@5": 0.5948294214719607,
+      "Latency": 10.740399360656738
+    }
+  },
+  "per_query_metrics": [
+    {
+      "query": "sci fi space",
+      "relevant_movies": [
+        "Galaxy Quest",
+        "Star Trek Beyond",
+        "Lockout",
+        "Logan's Run",
+        "Sphere"
+      ],
+      "TF-IDF": {
+        "Precision@5": 0.6,
+        "Recall@5": 0.6,
+        "MRR": 1.0,
+        "NDCG@5": 0.6548086577531307,
+        "Latency": 14.684915542602539
+      },
+      "Semantic": {
+        "Precision@5": 0.4,
+        "Recall@5": 0.4,
+        "MRR": 1.0,
+        "NDCG@5": 0.5087403079104241,
+        "Latency": 99.0610122680664
+      },
+      "Hybrid": {
+        "Precision@5": 0.4,
+        "Recall@5": 0.4,
+        "MRR": 1.0,
+        "NDCG@5": 0.5087403079104241,
+        "Latency": 14.852762222290039
+      }
+    },
+    {
+      "query": "superhero marvel",
+      "relevant_movies": [
+        "X-Men",
+        "X2",
+        "The Wolverine",
+        "Hulk",
+        "Spider-Man"
+      ],
+      "TF-IDF": {
+        "Precision@5": 0.6,
+        "Recall@5": 0.6,
+        "MRR": 1.0,
+        "NDCG@5": 0.7227265726449519,
+        "Latency": 1.9271373748779297
+      },
+      "Semantic": {
+        "Precision@5": 0.6,
+        "Recall@5": 0.6,
+        "MRR": 1.0,
+        "NDCG@5": 0.6548086577531307,
+        "Latency": 25.618791580200195
+      },
+      "Hybrid": {
+        "Precision@5": 0.6,
+        "Recall@5": 0.6,
+        "MRR": 1.0,
+        "NDCG@5": 0.7227265726449519,
+        "Latency": 12.904882431030273
+      }
+    },
+    {
+      "query": "scary terrifying ghost",
+      "relevant_movies": [
+        "Don't Be Afraid of the Dark",
+        "The Apparition",
+        "Paranormal Activity",
+        "Poltergeist"
+      ],
+      "TF-IDF": {
+        "Precision@5": 0.2,
+        "Recall@5": 0.25,
+        "MRR": 1.0,
+        "NDCG@5": 0.3903800499921017,
+        "Latency": 1.7981529235839844
+      },
+      "Semantic": {
+        "Precision@5": 0.4,
+        "Recall@5": 0.5,
+        "MRR": 1.0,
+        "NDCG@5": 0.5855700749881525,
+        "Latency": 10.304927825927734
+      },
+      "Hybrid": {
+        "Precision@5": 0.2,
+        "Recall@5": 0.25,
+        "MRR": 0.3333333333333333,
+        "NDCG@5": 0.19519002499605084,
+        "Latency": 12.830018997192383
+      }
+    },
+    {
+      "query": "mind bending",
+      "relevant_movies": [
+        "A Beautiful Mind",
+        "Donnie Darko",
+        "Inception",
+        "The Matrix",
+        "Bending Steel"
+      ],
+      "TF-IDF": {
+        "Precision@5": 0.2,
+        "Recall@5": 0.2,
+        "MRR": 1.0,
+        "NDCG@5": 0.3391602052736161,
+        "Latency": 1.7752647399902344
+      },
+      "Semantic": {
+        "Precision@5": 0.4,
+        "Recall@5": 0.4,
+        "MRR": 1.0,
+        "NDCG@5": 0.48522855511632257,
+        "Latency": 10.637044906616211
+      },
+      "Hybrid": {
+        "Precision@5": 0.2,
+        "Recall@5": 0.2,
+        "MRR": 1.0,
+        "NDCG@5": 0.3391602052736161,
+        "Latency": 12.712955474853516
+      }
+    },
+    {
+      "query": "funny relationship",
+      "relevant_movies": [
+        "Punch-Drunk Love",
+        "Celeste & Jesse Forever",
+        "That Awkward Moment",
+        "My Best Friend's Girl"
+      ],
+      "TF-IDF": {
+        "Precision@5": 0.2,
+        "Recall@5": 0.25,
+        "MRR": 0.25,
+        "NDCG@5": 0.16812753627111746,
+        "Latency": 1.8351078033447266
+      },
+      "Semantic": {
+        "Precision@5": 0.6,
+        "Recall@5": 0.75,
+        "MRR": 1.0,
+        "NDCG@5": 0.8318724637288826,
+        "Latency": 10.256052017211914
+      },
+      "Hybrid": {
+        "Precision@5": 0.2,
+        "Recall@5": 0.25,
+        "MRR": 1.0,
+        "NDCG@5": 0.3903800499921017,
+        "Latency": 12.959003448486328
+      }
+    },
+    {
+      "query": "time travel",
+      "relevant_movies": [
+        "Somewhere in Time",
+        "Timecop",
+        "The Time Traveler's Wife",
+        "Timecrimes",
+        "Men in Black 3"
+      ],
+      "TF-IDF": {
+        "Precision@5": 0.8,
+        "Recall@5": 0.8,
+        "MRR": 1.0,
+        "NDCG@5": 0.8687949224876582,
+        "Latency": 1.79290771484375
+      },
+      "Semantic": {
+        "Precision@5": 0.6,
+        "Recall@5": 0.6,
+        "MRR": 1.0,
+        "NDCG@5": 0.6992148198508501,
+        "Latency": 10.286092758178711
+      },
+      "Hybrid": {
+        "Precision@5": 0.8,
+        "Recall@5": 0.8,
+        "MRR": 1.0,
+        "NDCG@5": 0.8687949224876582,
+        "Latency": 8.926868438720703
+      }
+    },
+    {
+      "query": "dinosaur theme park",
+      "relevant_movies": [
+        "Jurassic Park",
+        "Jurassic World",
+        "Jurassic Park III",
+        "The Lost World: Jurassic Park"
+      ],
+      "TF-IDF": {
+        "Precision@5": 0.6,
+        "Recall@5": 0.75,
+        "MRR": 1.0,
+        "NDCG@5": 0.787702056960637,
+        "Latency": 1.865386962890625
+      },
+      "Semantic": {
+        "Precision@5": 0.8,
+        "Recall@5": 1.0,
+        "MRR": 1.0,
+        "NDCG@5": 0.9828920819566879,
+        "Latency": 6.603002548217773
+      },
+      "Hybrid": {
+        "Precision@5": 0.6,
+        "Recall@5": 0.75,
+        "MRR": 1.0,
+        "NDCG@5": 0.8318724637288826,
+        "Latency": 8.542060852050781
+      }
+    },
+    {
+      "query": "heist casino",
+      "relevant_movies": [
+        "The Good Thief",
+        "Heist",
+        "Ocean's Thirteen",
+        "Casino",
+        "Ocean's Eleven"
+      ],
+      "TF-IDF": {
+        "Precision@5": 0.6,
+        "Recall@5": 0.6,
+        "MRR": 1.0,
+        "NDCG@5": 0.6992148198508501,
+        "Latency": 1.7421245574951172
+      },
+      "Semantic": {
+        "Precision@5": 0.6,
+        "Recall@5": 0.6,
+        "MRR": 1.0,
+        "NDCG@5": 0.7227265726449519,
+        "Latency": 8.64100456237793
+      },
+      "Hybrid": {
+        "Precision@5": 0.4,
+        "Recall@5": 0.4,
+        "MRR": 1.0,
+        "NDCG@5": 0.5531464700081437,
+        "Latency": 7.708311080932617
+      }
+    },
+    {
+      "query": "artificial intelligence future",
+      "relevant_movies": [
+        "I, Robot",
+        "A.I. Artificial Intelligence",
+        "Automata",
+        "Ex Machina",
+        "Stealth"
+      ],
+      "TF-IDF": {
+        "Precision@5": 0.8,
+        "Recall@5": 0.8,
+        "MRR": 1.0,
+        "NDCG@5": 0.8687949224876582,
+        "Latency": 1.622915267944336
+      },
+      "Semantic": {
+        "Precision@5": 0.8,
+        "Recall@5": 0.8,
+        "MRR": 1.0,
+        "NDCG@5": 0.8539316501572937,
+        "Latency": 4.8770904541015625
+      },
+      "Hybrid": {
+        "Precision@5": 0.8,
+        "Recall@5": 0.8,
+        "MRR": 1.0,
+        "NDCG@5": 0.8539316501572937,
+        "Latency": 7.554054260253906
+      }
+    },
+    {
+      "query": "world war battle",
+      "relevant_movies": [
+        "Enemy at the Gates",
+        "Downfall",
+        "A Bridge Too Far",
+        "Letters from Iwo Jima",
+        "Fury"
+      ],
+      "TF-IDF": {
+        "Precision@5": 0.2,
+        "Recall@5": 0.2,
+        "MRR": 1.0,
+        "NDCG@5": 0.3391602052736161,
+        "Latency": 1.7077922821044922
+      },
+      "Semantic": {
+        "Precision@5": 0.8,
+        "Recall@5": 0.8,
+        "MRR": 1.0,
+        "NDCG@5": 0.8687949224876582,
+        "Latency": 11.056184768676758
+      },
+      "Hybrid": {
+        "Precision@5": 0.6,
+        "Recall@5": 0.6,
+        "MRR": 1.0,
+        "NDCG@5": 0.6843515475204855,
+        "Latency": 8.413076400756836
+      }
+    }
+  ]
+}
