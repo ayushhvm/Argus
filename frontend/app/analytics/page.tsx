@@ -109,9 +109,9 @@ export default function AnalyticsPage() {
                 <h3 className="font-semibold mb-6">Average Query Latency (ms)</h3>
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={[
-                    { name: 'TF-IDF', latency: evalData.aggregate_metrics["TF-IDF"]["Latency (ms)"] },
-                    { name: 'Semantic', latency: evalData.aggregate_metrics["Semantic"]["Latency (ms)"] },
-                    { name: 'Hybrid', latency: evalData.aggregate_metrics["Hybrid"]["Latency (ms)"] },
+                    { name: 'TF-IDF', latency: evalData.aggregate_metrics["TF-IDF"]["Latency"] },
+                    { name: 'Semantic', latency: evalData.aggregate_metrics["Semantic"]["Latency"] },
+                    { name: 'Hybrid', latency: evalData.aggregate_metrics["Hybrid"]["Latency"] },
                   ]}>
                     <XAxis dataKey="name" stroke="#6b7280" />
                     <YAxis stroke="#6b7280" />
