@@ -9,22 +9,28 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        display: ['var(--font-syne)', 'sans-serif'],
+        sans: ['var(--font-space-grotesk)', 'sans-serif'],
+        mono: ['var(--font-space-mono)', 'monospace'],
       },
       colors: {
-        background: "#09090b",
-        foreground: "#ffffff",
-        card: "#111827",
-        border: "rgba(255, 255, 255, 0.1)",
+        background: "#F3F1EC",
+        foreground: "#0D0D0D",
+        muted: "#888888",
+        surface: "rgba(255,255,255,0.6)",
         accent: {
-          DEFAULT: "#8b5cf6", // Purple
-          foreground: "#ffffff"
-        }
+          DEFAULT: "#FF3B2F",
+          foreground: "#FFFFFF",
+        },
+        tfidf: "#C3AED6",
+        semantic: "#94B8E8",
+        hybrid: "#E8A8B0",
+      },
+      letterSpacing: {
+        label: "0.15em",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },

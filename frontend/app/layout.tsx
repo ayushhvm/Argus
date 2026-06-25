@@ -1,25 +1,44 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Syne, Space_Grotesk, Space_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import Cursor from "@/components/Cursor";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  variable: "--font-syne",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-space-grotesk",
+});
+
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
+});
 
 export const metadata: Metadata = {
   title: "CineSeek | Intelligent Movie Discovery",
-  description: "A premium movie discovery and information retrieval platform.",
+  description:
+    "An IR-powered movie discovery platform using TF-IDF, Semantic FAISS, and Hybrid RRF retrieval.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} min-h-screen bg-background text-foreground selection:bg-accent/30 selection:text-accent-foreground pt-16`}>
+    <html lang="en">
+      <body
+        className={`${syne.variable} ${spaceGrotesk.variable} ${spaceMono.variable} font-sans min-h-screen bg-background text-foreground`}
+      >
+        <Cursor />
         <Navbar />
-        {children}
+        <div className="pt-14">{children}</div>
       </body>
     </html>
   );

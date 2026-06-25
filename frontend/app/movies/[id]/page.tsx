@@ -1,8 +1,19 @@
 "use client";
-import { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';
-import MovieCard, { Movie } from '@/components/MovieCard';
-import { Loader2, Star, Calendar } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import MovieCard, { Movie } from "@/components/MovieCard";
+import { Loader2, Star, Clock } from "lucide-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+interface FullMovie extends Movie {
+  release_year?: number;
+  average_rating?: number;
+  backdrop_url?: string;
+  director?: string;
+  cast?: string;
+  runtime?: number;
+}
 
 interface SimilarMovie {
   movie: Movie;
@@ -10,136 +21,209 @@ interface SimilarMovie {
 }
 
 export default function MovieDetailsPage() {
-  const params = useParams();
-  const id = params.id as string;
-
-  const [movie, setMovie] = useState<Movie | null>(null);
+  const { id } = useParams<{ id: string }>();
+  const [movie, setMovie] = useState<FullMovie | null>(null);
   const [similar, setSimilar] = useState<SimilarMovie[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!id) return;
-
-    const fetchMovie = async () => {
+    const fetch_ = async () => {
       setLoading(true);
       try {
-        const [movieRes, similarRes] = await Promise.all([
+        const [mRes, sRes] = await Promise.all([
           fetch(`http://localhost:8000/api/v1/movies/${id}`),
-          fetch(`http://localhost:8000/api/v1/movies/${id}/similar`)
+          fetch(`http://localhost:8000/api/v1/movies/${id}/similar`),
         ]);
-        
-        if (movieRes.ok) setMovie(await movieRes.json());
-        if (similarRes.ok) setSimilar(await similarRes.json());
-      } catch (err) {
-        console.error(err);
+        if (mRes.ok) setMovie(await mRes.json());
+        if (sRes.ok) setSimilar(await sRes.json());
+      } catch (e) {
+        console.error(e);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchMovie();
+    fetch_();
   }, [id]);
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="w-12 h-12 text-accent animate-spin" />
+        <Loader2 className="w-10 h-10 text-accent animate-spin" />
       </div>
     );
   }
 
   if (!movie) {
-    return <div className="min-h-screen flex items-center justify-center text-xl text-gray-500">Movie not found.</div>;
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center gap-3">
+        <p className="font-display font-bold text-3xl">Film not found.</p>
+        <p className="label">The ID you provided doesn&rsquo;t match any film in the index.</p>
+      </div>
+    );
   }
 
-  const posterUrl = movie.poster_url || `https://via.placeholder.com/500x750/111827/ffffff?text=${encodeURIComponent(movie.title)}`;
-  const backdropUrl = movie.poster_url || `https://via.placeholder.com/1920x1080/09090b/09090b`;
+  const year = movie.release_year ?? movie.year;
 
   return (
-    <main className="min-h-screen pb-20">
-      {/* Cinematic Backdrop */}
-      <div className="relative w-full h-[60vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent z-10" />
-        <img 
-          src={backdropUrl} 
-          alt={movie.title} 
-          className="w-full h-full object-cover blur-sm scale-105 opacity-50"
-        />
+    <main className="min-h-screen">
+      {/* ── Full-bleed backdrop ── */}
+      <div className="relative w-full h-[56vh] overflow-hidden">
+        {/* Gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/70 to-transparent z-10" />
+
+        {movie.backdrop_url || movie.poster_url ? (
+          <Image
+            src={movie.backdrop_url || movie.poster_url}
+            alt={movie.title}
+            fill
+            className="object-cover opacity-70"
+            sizes="100vw"
+            priority
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-tfidf/20 via-semantic/20 to-hybrid/20" />
+        )}
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-20 -mt-[40vh]">
-        <div className="flex flex-col md:flex-row gap-10">
-          
+      {/* ── Content ── */}
+      <div className="px-8 md:px-12 -mt-[28vh] relative z-20">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          className="grid md:grid-cols-[auto_1fr] gap-10 items-end"
+        >
           {/* Poster */}
-          <div className="w-64 md:w-80 flex-shrink-0">
-            <img 
-              src={posterUrl} 
-              alt={movie.title}
-              className="w-full rounded-xl shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-white/10"
-            />
-          </div>
-
-          {/* Details */}
-          <div className="flex-1 space-y-6 pt-10">
-            <h1 className="text-5xl md:text-6xl font-black drop-shadow-lg leading-tight">
-              {movie.title}
-            </h1>
-            
-            <div className="flex flex-wrap items-center gap-6 text-gray-300 text-sm font-medium">
-              <span className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-accent" />
-                {movie.release_year}
-              </span>
-              <span className="flex items-center gap-2 text-yellow-400">
-                <Star className="w-4 h-4 fill-current" />
-                {movie.average_rating ? movie.average_rating.toFixed(1) : "N/A"}
-              </span>
-              <div className="flex items-center gap-2">
-                {movie.genres?.split(',').map(g => (
-                  <span key={g} className="px-3 py-1 rounded-full bg-white/10 border border-white/10">
-                    {g.trim()}
-                  </span>
-                ))}
+          <div className="w-48 md:w-64 flex-shrink-0">
+            {movie.poster_url ? (
+              <div className="relative aspect-[2/3] rounded-xl overflow-hidden shadow-2xl border border-foreground/8">
+                <Image
+                  src={movie.poster_url}
+                  alt={movie.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 192px, 256px"
+                />
               </div>
-            </div>
-
-            <div className="pt-4 space-y-2">
-              <h3 className="text-lg font-semibold text-white/90">Overview</h3>
-              <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
-                {movie.overview}
-              </p>
-            </div>
-            
-            {/* You can add cast and director here if available in the model */}
+            ) : (
+              <div className="aspect-[2/3] rounded-xl bg-foreground/5 border border-foreground/10 flex items-center justify-center p-4">
+                <span className="font-display font-bold text-center text-sm text-muted">
+                  {movie.title}
+                </span>
+              </div>
+            )}
           </div>
-        </div>
 
-        {/* Similar Movies via Semantic FAISS */}
-        <div className="mt-32 space-y-6">
-          <div className="flex flex-col space-y-2">
-            <h2 className="text-2xl font-bold border-b border-white/10 pb-4">
-              Similar Movies
-            </h2>
-            <p className="text-sm text-gray-500">
-              Discovered using <span className="text-accent font-mono">Semantic FAISS Embeddings</span> via Content Similarity.
+          {/* Info */}
+          <div className="space-y-5 pb-2">
+            <div>
+              <p className="label mb-2">{year ?? "Unknown year"}</p>
+              <h1 className="font-display font-black text-4xl md:text-6xl leading-[0.95] tracking-tight">
+                {movie.title}
+              </h1>
+            </div>
+
+            {/* Meta badges */}
+            <div className="flex flex-wrap items-center gap-4">
+              {movie.average_rating && (
+                <div className="flex items-center gap-1.5">
+                  <Star className="w-4 h-4 fill-accent text-accent" />
+                  <span className="font-mono font-bold text-lg">
+                    {movie.average_rating.toFixed(1)}
+                  </span>
+                </div>
+              )}
+              {movie.runtime && (
+                <div className="flex items-center gap-1.5 text-muted">
+                  <Clock className="w-4 h-4" />
+                  <span className="font-mono text-sm">{movie.runtime}m</span>
+                </div>
+              )}
+              {movie.director && (
+                <span className="label">
+                  Dir. <span className="text-foreground font-sans font-medium">{movie.director}</span>
+                </span>
+              )}
+            </div>
+
+            {/* Genres */}
+            <div className="flex flex-wrap gap-2">
+              {movie.genres?.split(",").map((g) => (
+                <span
+                  key={g}
+                  className="label border border-foreground/15 px-3 py-1.5 rounded-full"
+                >
+                  {g.trim()}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Overview + cast */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          className="mt-12 grid md:grid-cols-[2fr_1fr] gap-12 border-t border-foreground/10 pt-12"
+        >
+          <div className="space-y-4">
+            <p className="label">Overview</p>
+            <p className="font-sans text-lg leading-relaxed text-foreground/80">
+              {movie.overview}
             </p>
           </div>
-          
-          {similar.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {similar.slice(0, 5).map((item) => (
-                <MovieCard 
-                  key={item.movie.id} 
-                  movie={item.movie} 
-                  score={item.score} 
+          {movie.cast && (
+            <div className="space-y-4">
+              <p className="label">Cast</p>
+              <div className="flex flex-wrap gap-2">
+                {movie.cast
+                  .split(",")
+                  .slice(0, 8)
+                  .map((c) => (
+                    <span
+                      key={c}
+                      className="font-sans text-sm text-foreground/70 border border-foreground/10 px-2 py-1 rounded"
+                    >
+                      {c.trim()}
+                    </span>
+                  ))}
+              </div>
+            </div>
+          )}
+        </motion.div>
+
+        {/* Similar */}
+        {similar.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="mt-16 pb-20 space-y-6 border-t border-foreground/10 pt-12"
+          >
+            <div className="flex items-end justify-between">
+              <div>
+                <p className="label mb-1">AI Discovery</p>
+                <h2 className="font-display font-bold text-2xl">Similar Films</h2>
+              </div>
+              <p className="label text-semantic">Semantic FAISS Similarity</p>
+            </div>
+
+            <div>
+              {similar.slice(0, 6).map((item, idx) => (
+                <MovieCard
+                  key={item.movie.id}
+                  movie={item.movie}
+                  score={item.score}
+                  rank={idx + 1}
+                  variant="row"
                 />
               ))}
             </div>
-          ) : (
-            <p className="text-gray-500">No similar movies found.</p>
-          )}
-        </div>
+          </motion.div>
+        )}
       </div>
     </main>
   );

@@ -1,8 +1,29 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { useEffect, useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
-import { Loader2 } from 'lucide-react';
+import { useEffect, useState } from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
+  Cell,
+} from "recharts";
+import { Loader2 } from "lucide-react";
+
+const ENGINE_COLORS = {
+  TF_IDF: "#C3AED6",
+  Semantic: "#94B8E8",
+  Hybrid: "#E8A8B0",
+};
+
+const METRICS = ["Precision@5", "Recall@5", "MRR", "NDCG@5"];
 
 export default function AnalyticsPage() {
   const [evalData, setEvalData] = useState<Record<string, any> | null>(null);
@@ -10,121 +31,213 @@ export default function AnalyticsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchAnalytics = async () => {
+    const fetch_ = async () => {
       setLoading(true);
       try {
-        const [evalRes, sysRes] = await Promise.all([
-          fetch('http://localhost:8000/api/v1/analytics/evaluation'),
-          fetch('http://localhost:8000/api/v1/analytics/system')
+        const [eRes, sRes] = await Promise.all([
+          fetch("http://localhost:8000/api/v1/analytics/evaluation"),
+          fetch("http://localhost:8000/api/v1/analytics/system"),
         ]);
-        if (evalRes.ok) setEvalData(await evalRes.json());
-        if (sysRes.ok) setSysData(await sysRes.json());
-      } catch (err) {
-        console.error(err);
+        if (eRes.ok) setEvalData(await eRes.json());
+        if (sRes.ok) setSysData(await sRes.json());
+      } catch (e) {
+        console.error(e);
       } finally {
         setLoading(false);
       }
     };
-    fetchAnalytics();
+    fetch_();
   }, []);
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center space-y-4">
-        <Loader2 className="w-10 h-10 text-accent animate-spin" />
-        <p className="text-gray-400">Loading System & Evaluation Metrics...</p>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4">
+        <Loader2 className="w-8 h-8 text-accent animate-spin" />
+        <p className="label">Loading metrics...</p>
       </div>
     );
   }
 
-  // Format data for Recharts
-  const formatRadarData = () => {
-    if (!evalData) return [];
-    const metrics = ["Precision@5", "Recall@5", "MRR", "NDCG@5"];
-    return metrics.map(metric => ({
-      metric,
-      TFIDF: evalData.aggregate_metrics["TF-IDF"][metric] * 100,
-      Semantic: evalData.aggregate_metrics["Semantic"][metric] * 100,
-      Hybrid: evalData.aggregate_metrics["Hybrid"][metric] * 100,
-    }));
-  };
+  if (!evalData) return null;
 
-  const radarData = formatRadarData();
+  const agg = evalData.aggregate_metrics;
+
+  const radarData = METRICS.map((m) => ({
+    metric: m,
+    TFIDF: agg["TF-IDF"][m] * 100,
+    Semantic: agg["Semantic"][m] * 100,
+    Hybrid: agg["Hybrid"][m] * 100,
+  }));
+
+  const latencyData = [
+    { name: "TF-IDF", latency: agg["TF-IDF"]["Latency"] },
+    { name: "Semantic", latency: agg["Semantic"]["Latency"] },
+    { name: "Hybrid", latency: agg["Hybrid"]["Latency"] },
+  ];
+
+  const barColors = ["#C3AED6", "#94B8E8", "#E8A8B0"];
 
   return (
-    <main className="min-h-screen px-6 py-12">
-      <div className="max-w-7xl mx-auto space-y-12">
-        <div className="space-y-2">
-          <h1 className="text-4xl font-bold">Analytics Dashboard</h1>
-          <p className="text-gray-400">System health and Information Retrieval Evaluation Metrics</p>
+    <main className="min-h-screen px-8 md:px-12">
+      {/* Header */}
+      <div className="py-12 border-b border-foreground/10">
+        <p className="label mb-2 text-accent">Research Output</p>
+        <h1 className="font-display font-black text-4xl md:text-5xl leading-none">
+          Analytics
+        </h1>
+      </div>
+
+      {/* System Overview */}
+      {sysData && (
+        <div className="py-12 grid grid-cols-3 divide-x divide-foreground/10 border-b border-foreground/10">
+          {[
+            { label: "Films Indexed", value: sysData.total_movies.toLocaleString() },
+            { label: "Database Size", value: `${sysData.db_size_mb} MB` },
+            { label: "Engines Loaded", value: "3" },
+          ].map((stat) => (
+            <div key={stat.label} className="px-8 first:pl-0 last:pr-0 space-y-2">
+              <p className="label">{stat.label}</p>
+              <p className="font-mono font-bold text-4xl md:text-5xl text-foreground">
+                {stat.value}
+              </p>
+            </div>
+          ))}
         </div>
+      )}
 
-        {/* System Overview Cards */}
-        {sysData && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="glass p-6 rounded-2xl border border-white/5">
-              <div className="text-gray-400 text-sm font-medium">Total Movies Indexed</div>
-              <div className="text-4xl font-black mt-2">{sysData.total_movies.toLocaleString()}</div>
-            </div>
-            <div className="glass p-6 rounded-2xl border border-white/5">
-              <div className="text-gray-400 text-sm font-medium">Database Size</div>
-              <div className="text-4xl font-black mt-2">{sysData.db_size_mb} MB</div>
-            </div>
-            <div className="glass p-6 rounded-2xl border border-white/5">
-              <div className="text-gray-400 text-sm font-medium">Retrieval Engines</div>
-              <div className="text-4xl font-black mt-2 text-green-400">Loaded</div>
-            </div>
+      {/* Evaluation */}
+      {evalData && (
+        <div className="py-12 space-y-12">
+          <div className="flex items-end gap-4 justify-between">
+            <h2 className="font-display font-bold text-2xl">Retrieval Evaluation</h2>
+            <p className="label text-accent">
+              Best overall → Semantic
+            </p>
           </div>
-        )}
 
-        {/* Evaluation Metrics */}
-        {evalData && (
-          <div className="space-y-8">
-            <h2 className="text-2xl font-bold border-b border-white/10 pb-4">Retrieval Evaluation</h2>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Radar Chart */}
-              <div className="glass p-6 rounded-2xl border border-white/5 h-[400px] flex flex-col">
-                <h3 className="font-semibold mb-6">Engine Comparison (Scores %)</h3>
+          {/* Metric score table */}
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-foreground/10">
+                  <th className="text-left label pb-4 pr-8">Engine</th>
+                  {METRICS.map((m) => (
+                    <th key={m} className="text-right label pb-4 px-4">
+                      {m}
+                    </th>
+                  ))}
+                  <th className="text-right label pb-4 pl-4">Latency</th>
+                </tr>
+              </thead>
+              <tbody>
+                {(["TF-IDF", "Semantic", "Hybrid"] as const).map((eng, i) => {
+                  const row = evalData.aggregate_metrics[eng];
+                  const isBest = eng === "Semantic";
+                  return (
+                    <tr
+                      key={eng}
+                      className={`border-b border-foreground/5 ${isBest ? "bg-semantic/5" : ""}`}
+                    >
+                      <td className="py-5 pr-8">
+                        <div className="flex items-center gap-3">
+                          <span
+                            className="w-2 h-2 rounded-full flex-shrink-0"
+                            style={{ background: [ENGINE_COLORS.TF_IDF, ENGINE_COLORS.Semantic, ENGINE_COLORS.Hybrid][i] }}
+                          />
+                          <span className="font-display font-bold text-lg">{eng}</span>
+                          {isBest && (
+                            <span className="label text-accent">Best</span>
+                          )}
+                        </div>
+                      </td>
+                      {METRICS.map((m) => (
+                        <td key={m} className="text-right py-5 px-4">
+                          <span className="font-mono text-base font-bold">
+                            {(row[m] * 100).toFixed(1)}
+                            <span className="text-muted text-xs">%</span>
+                          </span>
+                        </td>
+                      ))}
+                      <td className="text-right py-5 pl-4">
+                        <span className="font-mono text-base font-bold text-muted">
+                          {row["Latency"].toFixed(1)}ms
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Charts */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Radar */}
+            <div className="space-y-4">
+              <p className="label">Score Comparison (%)</p>
+              <div className="h-[320px]">
                 <ResponsiveContainer width="100%" height="100%">
                   <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
-                    <PolarGrid stroke="rgba(255,255,255,0.1)" />
-                    <PolarAngleAxis dataKey="metric" tick={{ fill: '#9ca3af', fontSize: 12 }} />
-                    <PolarRadiusAxis angle={30} domain={[0, 100]} tick={{ fill: '#6b7280' }} />
-                    <Radar name="Semantic" dataKey="Semantic" stroke="#a855f7" fill="#a855f7" fillOpacity={0.4} />
-                    <Radar name="Hybrid" dataKey="Hybrid" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.4} />
-                    <Radar name="TF-IDF" dataKey="TFIDF" stroke="#eab308" fill="#eab308" fillOpacity={0.4} />
-                    <Tooltip contentStyle={{ backgroundColor: '#111827', borderColor: '#1f2937' }} />
+                    <PolarGrid stroke="rgba(0,0,0,0.06)" />
+                    <PolarAngleAxis
+                      dataKey="metric"
+                      tick={{ fill: "#888", fontSize: 11, fontFamily: "var(--font-space-mono)" }}
+                    />
+                    <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
+                    <Radar name="Semantic" dataKey="Semantic" stroke={ENGINE_COLORS.Semantic} fill={ENGINE_COLORS.Semantic} fillOpacity={0.4} />
+                    <Radar name="Hybrid" dataKey="Hybrid" stroke={ENGINE_COLORS.Hybrid} fill={ENGINE_COLORS.Hybrid} fillOpacity={0.35} />
+                    <Radar name="TF-IDF" dataKey="TFIDF" stroke={ENGINE_COLORS.TF_IDF} fill={ENGINE_COLORS.TF_IDF} fillOpacity={0.35} />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: "#fff",
+                        border: "1px solid rgba(0,0,0,0.08)",
+                        fontFamily: "var(--font-space-mono)",
+                        fontSize: 11,
+                      }}
+                    />
                   </RadarChart>
                 </ResponsiveContainer>
-                <div className="flex justify-center gap-6 mt-4 text-xs">
-                  <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-purple-500"></span>Semantic</div>
-                  <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-blue-500"></span>Hybrid</div>
-                  <div className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-yellow-500"></span>TF-IDF</div>
-                </div>
               </div>
+            </div>
 
-              {/* Top Query Latencies */}
-              <div className="glass p-6 rounded-2xl border border-white/5 h-[400px] flex flex-col">
-                <h3 className="font-semibold mb-6">Average Query Latency (ms)</h3>
+            {/* Bar - latency */}
+            <div className="space-y-4">
+              <p className="label">Average Latency (ms)</p>
+              <div className="h-[320px]">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={[
-                    { name: 'TF-IDF', latency: evalData.aggregate_metrics["TF-IDF"]["Latency"] },
-                    { name: 'Semantic', latency: evalData.aggregate_metrics["Semantic"]["Latency"] },
-                    { name: 'Hybrid', latency: evalData.aggregate_metrics["Hybrid"]["Latency"] },
-                  ]}>
-                    <XAxis dataKey="name" stroke="#6b7280" />
-                    <YAxis stroke="#6b7280" />
-                    <Tooltip cursor={{ fill: 'rgba(255,255,255,0.05)' }} contentStyle={{ backgroundColor: '#111827', borderColor: '#1f2937' }} />
-                    <Bar dataKey="latency" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+                  <BarChart data={latencyData} barSize={40}>
+                    <XAxis
+                      dataKey="name"
+                      tick={{ fill: "#888", fontSize: 11, fontFamily: "var(--font-space-mono)" }}
+                      axisLine={false}
+                      tickLine={false}
+                    />
+                    <YAxis
+                      tick={{ fill: "#888", fontSize: 11, fontFamily: "var(--font-space-mono)" }}
+                      axisLine={false}
+                      tickLine={false}
+                    />
+                    <Tooltip
+                      cursor={{ fill: "rgba(0,0,0,0.03)" }}
+                      contentStyle={{
+                        backgroundColor: "#fff",
+                        border: "1px solid rgba(0,0,0,0.08)",
+                        fontFamily: "var(--font-space-mono)",
+                        fontSize: 11,
+                      }}
+                    />
+                    <Bar dataKey="latency" radius={[3, 3, 0, 0]}>
+                      {latencyData.map((_, i) => (
+                        <Cell key={i} fill={barColors[i]} />
+                      ))}
+                    </Bar>
                   </BarChart>
                 </ResponsiveContainer>
               </div>
             </div>
-            
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </main>
   );
 }

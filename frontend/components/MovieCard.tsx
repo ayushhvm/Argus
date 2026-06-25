@@ -1,107 +1,173 @@
 "use client";
-import Link from 'next/link';
-import { Star, Calendar } from 'lucide-react';
-import ExplanationBadge from './ExplanationBadge';
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export interface Movie {
-  id: number;
+  id: string;
   title: string;
+  year: number | null;
   overview: string;
   genres: string;
-  release_year: number;
-  average_rating: number;
-  poster_url?: string;
+  poster_url: string;
+  backdrop_url?: string;
+  release_year?: number;
+  average_rating?: number;
+  director?: string;
+  cast?: string;
 }
 
 interface MovieCardProps {
   movie: Movie;
   score?: number;
+  rank?: number;
   explanation?: string;
   tfidfRank?: number;
   semanticRank?: number;
-  rank?: number;
   showExplanation?: boolean;
+  /** "row" = editorial horizontal list. "card" = compact vertical for playground. */
+  variant?: "row" | "card";
 }
 
-export default function MovieCard({ 
-  movie, 
-  score, 
-  explanation, 
-  tfidfRank, 
-  semanticRank, 
-  rank,
-  showExplanation = false 
-}: MovieCardProps) {
-  // If no poster, use a sleek placeholder
-  const posterUrl = movie.poster_url || `https://via.placeholder.com/500x750/111827/ffffff?text=${encodeURIComponent(movie.title)}`;
+/* ── Proximity helpers ── */
+function getProximity(rank?: number) {
+  if (!rank) return { scale: 1, opacity: 1, glow: false };
+  if (rank === 1) return { scale: 1, opacity: 1, glow: true };
+  if (rank <= 3) return { scale: 0.97, opacity: 0.85, glow: false };
+  return { scale: 0.94, opacity: 0.65, glow: false };
+}
+
+/* ── ROW variant (search results) ── */
+function RowCard({ movie, score, rank, explanation, showExplanation }: MovieCardProps) {
+  const { opacity, glow } = getProximity(rank);
+  const year = movie.release_year ?? movie.year;
 
   return (
-    <Link href={`/movies/${movie.id}`} className="block group">
-      <div className="relative rounded-xl overflow-hidden glass transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(139,92,246,0.15)] hover:border-accent/50 flex flex-col h-full">
-        
-        {rank && (
-          <div className="absolute top-3 left-3 z-20 w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center font-bold text-white shadow-lg">
-            {rank}
-          </div>
-        )}
-
-        <div className="relative aspect-[2/3] w-full overflow-hidden">
-          <img 
-            src={posterUrl} 
-            alt={movie.title} 
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-          
-          <div className="absolute bottom-0 w-full p-4 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-            <h3 className="font-bold text-lg text-white line-clamp-2 leading-tight drop-shadow-md">
-              {movie.title}
-            </h3>
-            <div className="flex items-center gap-3 mt-2 text-xs font-medium text-gray-300">
-              <span className="flex items-center gap-1">
-                <Calendar className="w-3 h-3" />
-                {movie.release_year || "Unknown"}
-              </span>
-              <span className="flex items-center gap-1 text-yellow-400">
-                <Star className="w-3 h-3 fill-current" />
-                {movie.average_rating ? movie.average_rating.toFixed(1) : "N/A"}
-              </span>
-            </div>
-          </div>
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity, y: 0 }}
+      transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+      whileHover={{ opacity: 1 }}
+      className={`group border-b border-foreground/8 ${glow ? "border-accent/20" : ""}`}
+    >
+      <Link
+        href={`/movies/${movie.id}`}
+        className="flex items-stretch gap-6 py-6 hover:gap-8 transition-all duration-300"
+      >
+        {/* Rank */}
+        <div className="flex-shrink-0 w-8 pt-1">
+          <span className="font-mono text-xs text-muted">{String(rank ?? "—").padStart(2, "0")}</span>
         </div>
 
-        <div className="p-4 flex-1 flex flex-col">
-          <p className="text-sm text-gray-400 line-clamp-3 leading-relaxed flex-1">
-            {movie.overview}
-          </p>
-          
-          <div className="mt-4 flex flex-wrap gap-1">
-            {movie.genres?.split(',').slice(0, 3).map(g => (
-              <span key={g} className="px-2 py-1 rounded-md bg-white/5 text-[10px] uppercase tracking-wider text-gray-400 border border-white/5">
+        {/* Poster */}
+        <div className="flex-shrink-0 relative w-16 h-24 rounded-md overflow-hidden bg-foreground/5">
+          {movie.poster_url ? (
+            <Image
+              src={movie.poster_url}
+              alt={movie.title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="64px"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center text-[8px] text-muted font-mono text-center px-1">
+              {movie.title}
+            </div>
+          )}
+          {glow && (
+            <div className="absolute inset-0 ring-1 ring-accent/50 rounded-md" />
+          )}
+        </div>
+
+        {/* Content */}
+        <div className="flex-1 min-w-0">
+          <div className="flex items-start justify-between gap-4">
+            <h3 className={`font-display font-bold leading-tight transition-colors group-hover:text-accent ${rank === 1 ? "text-2xl" : "text-xl"}`}>
+              {movie.title}
+            </h3>
+            {score !== undefined && (
+              <span className="flex-shrink-0 font-mono text-xs text-accent bg-accent/8 px-2 py-1 rounded">
+                {score.toFixed(4)}
+              </span>
+            )}
+          </div>
+
+          <div className="flex items-center gap-4 mt-1 mb-3">
+            <span className="label">{year ?? "—"}</span>
+            {movie.genres?.split(",").slice(0, 3).map((g) => (
+              <span key={g} className="label">
                 {g.trim()}
               </span>
             ))}
           </div>
 
-          {score !== undefined && (
-            <div className="mt-3 pt-3 border-t border-white/10 flex justify-between items-center text-xs">
-              <span className="text-gray-500 font-medium tracking-wide uppercase">Relevance Score</span>
-              <span className="font-mono text-accent bg-accent/10 px-2 py-1 rounded">
-                {score.toFixed(4)}
-              </span>
-            </div>
-          )}
+          <p className="text-sm text-muted leading-relaxed line-clamp-2 font-sans">
+            {movie.overview}
+          </p>
 
           {showExplanation && explanation && (
-            <ExplanationBadge 
-              explanation={explanation} 
-              tfidfRank={tfidfRank} 
-              semanticRank={semanticRank} 
-            />
+            <p className="mt-3 text-xs text-foreground/60 font-sans leading-relaxed border-l-2 border-accent/30 pl-3">
+              {explanation}
+            </p>
           )}
         </div>
-      </div>
-    </Link>
+      </Link>
+    </motion.div>
+  );
+}
+
+/* ── CARD variant (playground / similar) ── */
+function CompactCard({ movie, score, rank }: MovieCardProps) {
+  const { opacity } = getProximity(rank);
+  const year = movie.release_year ?? movie.year;
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity, y: 0 }}
+      transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+      whileHover={{ opacity: 1 }}
+      className="group"
+    >
+      <Link href={`/movies/${movie.id}`} className="flex items-center gap-4 py-4 border-b border-foreground/8 hover:border-foreground/20 transition-colors">
+        {/* Rank */}
+        <span className="font-mono text-xs text-muted w-5 flex-shrink-0">
+          {String(rank ?? "—").padStart(2, "0")}
+        </span>
+
+        {/* Poster */}
+        <div className="flex-shrink-0 relative w-10 h-14 rounded overflow-hidden bg-foreground/5">
+          {movie.poster_url ? (
+            <Image src={movie.poster_url} alt={movie.title} fill className="object-cover" sizes="40px" />
+          ) : null}
+        </div>
+
+        {/* Info */}
+        <div className="flex-1 min-w-0">
+          <p className="font-display font-bold text-sm leading-tight truncate group-hover:text-accent transition-colors">
+            {movie.title}
+          </p>
+          <p className="label mt-0.5">{year ?? "—"}</p>
+        </div>
+
+        {/* Score */}
+        {score !== undefined && (
+          <span className="flex-shrink-0 font-mono text-[10px] text-muted">
+            {score.toFixed(3)}
+          </span>
+        )}
+      </Link>
+    </motion.div>
+  );
+}
+
+/* ── Export ── */
+export default function MovieCard(props: MovieCardProps) {
+  return props.variant === "card" ? (
+    <CompactCard {...props} />
+  ) : (
+    <RowCard {...props} />
   );
 }

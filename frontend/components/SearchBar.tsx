@@ -1,16 +1,23 @@
 "use client";
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Search } from 'lucide-react';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 
 interface SearchBarProps {
   initialQuery?: string;
   autoFocus?: boolean;
   large?: boolean;
   targetPath?: string;
+  placeholder?: string;
 }
 
-export default function SearchBar({ initialQuery = "", autoFocus = false, large = false, targetPath = "/search" }: SearchBarProps) {
+export default function SearchBar({
+  initialQuery = "",
+  autoFocus = false,
+  large = false,
+  targetPath = "/search",
+  placeholder = "Search for films, themes, or moods...",
+}: SearchBarProps) {
   const [query, setQuery] = useState(initialQuery);
   const router = useRouter();
 
@@ -22,25 +29,28 @@ export default function SearchBar({ initialQuery = "", autoFocus = false, large 
   };
 
   return (
-    <form onSubmit={handleSearch} className="relative w-full max-w-3xl mx-auto group">
-      <div className={`absolute inset-0 bg-accent/20 blur-xl rounded-full transition-opacity opacity-0 group-focus-within:opacity-100`} />
-      <div className={`relative flex items-center glass rounded-full overflow-hidden transition-all border ${large ? 'h-16' : 'h-12'} focus-within:border-accent/50 focus-within:shadow-[0_0_15px_rgba(139,92,246,0.3)]`}>
-        <div className="pl-6 text-gray-400">
-          <Search className={large ? "w-6 h-6" : "w-5 h-5"} />
-        </div>
+    <form onSubmit={handleSearch} className="w-full group outline-none">
+      <div
+        className={`search-glass flex items-center rounded-none border-0 border-b-2 border-foreground/20 focus-within:border-accent transition-colors duration-300 outline-none ${
+          large ? "py-4" : "py-3"
+        } px-0 gap-4`}
+      >
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search for movies, themes, or concepts..."
+          placeholder={placeholder}
           autoFocus={autoFocus}
-          className={`w-full bg-transparent border-none outline-none text-white placeholder:text-gray-500 px-4 ${large ? 'text-lg' : 'text-base'}`}
+          className={`flex-1 bg-transparent border-none outline-none text-foreground placeholder:text-muted font-sans ${
+            large ? "text-xl md:text-2xl" : "text-base"
+          }`}
         />
-        <button 
+        <button
           type="submit"
-          className="h-full px-8 bg-accent/10 hover:bg-accent/20 text-accent font-medium transition-colors border-l border-white/5"
+          className="flex-shrink-0 flex items-center gap-2 label text-accent hover:gap-4 transition-all duration-200"
         >
           Search
+          <ArrowRight className="w-4 h-4" />
         </button>
       </div>
     </form>

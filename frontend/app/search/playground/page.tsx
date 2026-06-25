@@ -1,9 +1,10 @@
 "use client";
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
-import SearchBar from '@/components/SearchBar';
-import MovieCard, { Movie } from '@/components/MovieCard';
-import { Loader2, Zap, BrainCircuit, Combine } from 'lucide-react';
+import { useEffect, useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import SearchBar from "@/components/SearchBar";
+import MovieCard, { Movie } from "@/components/MovieCard";
+import { Loader2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ResultItem {
   movie: Movie;
@@ -25,11 +26,45 @@ interface PlaygroundResponse {
   hybrid_latency_ms: number;
 }
 
-import { Suspense } from 'react';
+const ENGINES = [
+  {
+    key: "tfidf_results" as const,
+    latencyKey: "tfidf_latency_ms" as const,
+    label: "Lexical",
+    sub: "TF-IDF",
+    color: "text-tfidf",
+    dot: "bg-tfidf",
+    border: "border-tfidf/30",
+  },
+  {
+    key: "semantic_results" as const,
+    latencyKey: "semantic_latency_ms" as const,
+    label: "Semantic",
+    sub: "FAISS",
+    color: "text-semantic",
+    dot: "bg-semantic",
+    border: "border-semantic/30",
+  },
+  {
+    key: "hybrid_results" as const,
+    latencyKey: "hybrid_latency_ms" as const,
+    label: "Hybrid",
+    sub: "RRF Fusion",
+    color: "text-hybrid",
+    dot: "bg-hybrid",
+    border: "border-hybrid/30",
+  },
+];
 
 export default function PlaygroundPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><Loader2 className="w-8 h-8 animate-spin text-accent" /></div>}>
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center">
+          <Loader2 className="w-8 h-8 animate-spin text-accent" />
+        </div>
+      }
+    >
       <PlaygroundContent />
     </Suspense>
   );
@@ -37,139 +72,114 @@ export default function PlaygroundPage() {
 
 function PlaygroundContent() {
   const searchParams = useSearchParams();
-  const q = searchParams.get('q') || '';
-
+  const q = searchParams.get("q") || "";
   const [data, setData] = useState<PlaygroundResponse | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!q) return;
-    
-    const fetchPlayground = async () => {
+    const fetch_ = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:8000/api/v1/search/playground?q=${encodeURIComponent(q)}`);
-        const json = await res.json();
-        setData(json);
-      } catch (err) {
-        console.error(err);
+        const res = await fetch(
+          `http://localhost:8000/api/v1/search/playground?q=${encodeURIComponent(q)}`
+        );
+        setData(await res.json());
+      } catch (e) {
+        console.error(e);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchPlayground();
+    fetch_();
   }, [q]);
 
   return (
-    <main className="min-h-screen px-6 py-12">
-      <div className="max-w-[1600px] mx-auto space-y-8">
-        
-        <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-accent to-blue-500 bg-clip-text text-transparent">
-            Retrieval Playground
-          </h1>
-          <p className="text-gray-400">
-            Compare lexical, semantic, and hybrid Information Retrieval strategies side-by-side.
-          </p>
-          <SearchBar initialQuery={q} targetPath="/search/playground" />
+    <main className="min-h-screen px-8 md:px-12">
+      {/* Header */}
+      <div className="py-12 border-b border-foreground/10 space-y-8">
+        <div className="flex items-end justify-between gap-4 flex-wrap">
+          <div>
+            <p className="label mb-2 text-accent">IR Comparison</p>
+            <h1 className="font-display font-black text-4xl md:text-5xl leading-none">
+              Retrieval Playground
+            </h1>
+          </div>
+          {data && (
+            <p className="label text-muted">
+              Query expanded →{" "}
+              <span className="text-foreground">{data.expanded_query}</span>
+            </p>
+          )}
         </div>
-
-        {loading && (
-          <div className="flex flex-col items-center justify-center py-32 text-accent">
-            <Loader2 className="w-12 h-12 animate-spin" />
-            <p className="mt-4 text-gray-400 animate-pulse">Running all retrieval engines in parallel...</p>
-          </div>
-        )}
-
-        {!loading && data && (
-          <div className="space-y-8">
-            <div className="glass p-6 rounded-2xl border border-white/5 flex items-center justify-between">
-              <div>
-                <div className="text-sm text-gray-500 mb-1 uppercase tracking-wider font-semibold">Query Analysis</div>
-                <div className="flex items-center gap-6">
-                  <div>
-                    <span className="text-gray-400 text-sm">Original: </span>
-                    <span className="text-white font-medium">&quot;{data.query}&quot;</span>
-                  </div>
-                  {data.expanded_query && data.expanded_query !== data.query && (
-                    <div>
-                      <span className="text-gray-400 text-sm">Expanded Intent: </span>
-                      <span className="text-accent font-medium">{data.expanded_query}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* TF-IDF Column */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                  <h2 className="text-xl font-semibold flex items-center gap-2">
-                    <Zap className="w-5 h-5 text-yellow-500" />
-                    Lexical (TF-IDF)
-                  </h2>
-                  <span className="text-xs font-mono bg-white/5 px-2 py-1 rounded text-gray-400">
-                    {data.tfidf_latency_ms.toFixed(2)}ms
-                  </span>
-                </div>
-                <div className="space-y-4">
-                  {data.tfidf_results.map((item, idx) => (
-                    <MovieCard key={`tfidf-${item.movie.id}`} movie={item.movie} score={item.score} rank={idx + 1} />
-                  ))}
-                </div>
-              </div>
-
-              {/* Semantic Column */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-purple-500/30 pb-3">
-                  <h2 className="text-xl font-semibold flex items-center gap-2 text-purple-100">
-                    <BrainCircuit className="w-5 h-5 text-purple-400" />
-                    Semantic (FAISS)
-                  </h2>
-                  <span className="text-xs font-mono bg-purple-500/10 px-2 py-1 rounded text-purple-300">
-                    {data.semantic_latency_ms.toFixed(2)}ms
-                  </span>
-                </div>
-                <div className="space-y-4">
-                  {data.semantic_results.map((item, idx) => (
-                    <MovieCard key={`semantic-${item.movie.id}`} movie={item.movie} score={item.score} rank={idx + 1} />
-                  ))}
-                </div>
-              </div>
-
-              {/* Hybrid Column */}
-              <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-blue-500/30 pb-3">
-                  <h2 className="text-xl font-semibold flex items-center gap-2 text-blue-100">
-                    <Combine className="w-5 h-5 text-blue-400" />
-                    Hybrid (RRF Fusion)
-                  </h2>
-                  <span className="text-xs font-mono bg-blue-500/10 px-2 py-1 rounded text-blue-300">
-                    {data.hybrid_latency_ms.toFixed(2)}ms
-                  </span>
-                </div>
-                <div className="space-y-4">
-                  {data.hybrid_results.map((item, idx) => (
-                    <MovieCard 
-                      key={`hybrid-${item.movie.id}`} 
-                      movie={item.movie} 
-                      score={item.rrf_score || item.score} 
-                      rank={idx + 1}
-                      explanation={item.explanation || undefined}
-                      tfidfRank={item.tfidf_rank || undefined}
-                      semanticRank={item.semantic_rank || undefined}
-                      showExplanation={true}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-          </div>
-        )}
+        <SearchBar
+          initialQuery={q}
+          targetPath="/search/playground"
+          placeholder="Compare how each engine handles your query..."
+        />
       </div>
+
+      {/* Loading */}
+      {loading && (
+        <div className="flex flex-col items-center justify-center py-32 gap-4">
+          <Loader2 className="w-8 h-8 animate-spin text-accent" />
+          <p className="label">Running 3 retrieval engines in parallel...</p>
+        </div>
+      )}
+
+      {/* Columns */}
+      {!loading && data && (
+        <div className="py-10 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-foreground/10">
+          {ENGINES.map((eng) => {
+            const results = data[eng.key];
+            const latency = data[eng.latencyKey];
+            return (
+              <div key={eng.key} className="md:px-8 first:pl-0 last:pr-0 py-8 md:py-0">
+                {/* Column header */}
+                <div className={`flex items-center justify-between pb-6 border-b ${eng.border}`}>
+                  <div className="flex items-center gap-3">
+                    <span className={`w-2 h-2 rounded-full ${eng.dot} flex-shrink-0`} />
+                    <div>
+                      <p className={`font-display font-bold text-lg leading-none ${eng.color}`}>
+                        {eng.label}
+                      </p>
+                      <p className="label mt-1">{eng.sub}</p>
+                    </div>
+                  </div>
+                  <span className="font-mono text-xs text-muted bg-foreground/5 px-2 py-1 rounded">
+                    {latency.toFixed(1)}ms
+                  </span>
+                </div>
+
+                {/* Results */}
+                <motion.div layout>
+                  <AnimatePresence>
+                    {results.map((item, idx) => (
+                      <MovieCard
+                        key={`${eng.key}-${item.movie.id}`}
+                        movie={item.movie}
+                        score={item.rrf_score ?? item.score}
+                        rank={idx + 1}
+                        variant="card"
+                      />
+                    ))}
+                  </AnimatePresence>
+                </motion.div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Empty state */}
+      {!q && (
+        <div className="py-32 text-center space-y-3">
+          <p className="font-display font-bold text-3xl">Enter a query above.</p>
+          <p className="label">
+            See how TF-IDF, Semantic, and Hybrid each interpret it differently.
+          </p>
+        </div>
+      )}
     </main>
   );
 }

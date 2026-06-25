@@ -1,9 +1,10 @@
 "use client";
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
-import SearchBar from '@/components/SearchBar';
-import MovieCard, { Movie } from '@/components/MovieCard';
-import { Loader2 } from 'lucide-react';
+import { useEffect, useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
+import SearchBar from "@/components/SearchBar";
+import MovieCard, { Movie } from "@/components/MovieCard";
+import { Loader2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface SearchResult {
   movie: Movie;
@@ -19,11 +20,15 @@ interface SearchResponse {
   results: SearchResult[];
 }
 
-import { Suspense } from 'react';
-
 export default function SearchPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><Loader2 className="w-8 h-8 animate-spin text-accent" /></div>}>
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center">
+          <Loader2 className="w-8 h-8 animate-spin text-accent" />
+        </div>
+      }
+    >
       <SearchContent />
     </Suspense>
   );
@@ -31,83 +36,115 @@ export default function SearchPage() {
 
 function SearchContent() {
   const searchParams = useSearchParams();
-  const q = searchParams.get('q') || '';
-  const engine = searchParams.get('engine') || 'semantic';
+  const q = searchParams.get("q") || "";
+  const engine = searchParams.get("engine") || "semantic";
 
   const [data, setData] = useState<SearchResponse | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!q) return;
-    
-    const fetchResults = async () => {
+    const fetch_ = async () => {
       setLoading(true);
       try {
-        const res = await fetch(`http://localhost:8000/api/v1/search?q=${encodeURIComponent(q)}&engine=${engine}`);
-        const json = await res.json();
-        setData(json);
-      } catch (err) {
-        console.error(err);
+        const res = await fetch(
+          `http://localhost:8000/api/v1/search?q=${encodeURIComponent(q)}&engine=${engine}`
+        );
+        setData(await res.json());
+      } catch (e) {
+        console.error(e);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchResults();
+    fetch_();
   }, [q, engine]);
 
   return (
-    <main className="min-h-screen px-6 py-12">
-      <div className="max-w-7xl mx-auto space-y-12">
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold">Discover Movies</h1>
-          <SearchBar initialQuery={q} />
+    <main className="min-h-screen px-8 md:px-12">
+      {/* Header */}
+      <div className="py-12 border-b border-foreground/10 space-y-8">
+        <div className="flex items-end justify-between gap-4">
+          <h1 className="font-display font-black text-4xl md:text-5xl leading-none">
+            Discover
+          </h1>
+          <p className="label hidden md:block">Semantic Retrieval · FAISS</p>
         </div>
+        <SearchBar initialQuery={q} />
+      </div>
 
-        {loading && (
-          <div className="flex flex-col items-center justify-center py-20 text-accent">
-            <Loader2 className="w-10 h-10 animate-spin" />
-            <p className="mt-4 text-sm text-gray-400">Querying semantic latent space...</p>
-          </div>
-        )}
+      {/* Loading */}
+      {loading && (
+        <div className="flex flex-col items-center justify-center py-32 gap-4">
+          <Loader2 className="w-8 h-8 animate-spin text-accent" />
+          <p className="label text-muted">Querying semantic space...</p>
+        </div>
+      )}
 
-        {!loading && data && data.results.length > 0 && (
-          <div className="space-y-6">
-            <div className="flex items-center justify-between border-b border-white/5 pb-4">
-              <div>
-                <h2 className="text-xl text-white font-medium">Results for &quot;{data.query}&quot;</h2>
-                {data.expanded_query && data.expanded_query !== data.query && (
-                  <p className="text-sm text-gray-500 mt-1">
-                    Expanded: <span className="text-accent">{data.expanded_query}</span>
-                  </p>
-                )}
+      {/* Results */}
+      {!loading && data && data.results.length > 0 && (
+        <div className="py-8">
+          {/* Meta row */}
+          <div className="flex items-center justify-between mb-8">
+            <div className="space-y-1">
+              <p className="font-display font-bold text-xl">
+                &ldquo;{data.query}&rdquo;
+              </p>
+              {data.expanded_query && data.expanded_query !== data.query && (
+                <p className="label">
+                  Intent →{" "}
+                  <span className="text-accent">{data.expanded_query}</span>
+                </p>
+              )}
+            </div>
+            <div className="flex items-center gap-6">
+              <div className="text-right">
+                <p className="font-mono text-2xl font-bold">{data.results.length}</p>
+                <p className="label">Results</p>
               </div>
-              <div className="text-sm font-mono text-gray-500 bg-white/5 px-3 py-1.5 rounded-md">
-                Latency: <span className="text-white">{data.latency_ms.toFixed(2)}ms</span>
+              <div className="text-right">
+                <p className="font-mono text-2xl font-bold">
+                  {data.latency_ms.toFixed(0)}
+                  <span className="text-xs text-muted ml-1">ms</span>
+                </p>
+                <p className="label">Latency</p>
               </div>
             </div>
+          </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          <motion.div layout>
+            <AnimatePresence>
               {data.results.map((item, idx) => (
-                <MovieCard 
-                  key={item.movie.id} 
-                  movie={item.movie} 
+                <MovieCard
+                  key={item.movie.id}
+                  movie={item.movie}
                   score={item.score}
                   rank={idx + 1}
                   explanation={item.explanation || undefined}
-                  showExplanation={true}
+                  showExplanation
+                  variant="row"
                 />
               ))}
-            </div>
-          </div>
-        )}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+      )}
 
-        {!loading && data && data.results.length === 0 && (
-          <div className="text-center py-20 text-gray-500">
-            No movies found for this query. Try a different concept.
-          </div>
-        )}
-      </div>
+      {/* Empty */}
+      {!loading && q && data?.results.length === 0 && (
+        <div className="py-32 text-center space-y-3">
+          <p className="font-display font-bold text-3xl">Nothing found.</p>
+          <p className="label">Try a different theme or concept.</p>
+        </div>
+      )}
+
+      {/* No query */}
+      {!q && (
+        <div className="py-32 text-center space-y-3">
+          <p className="font-display font-bold text-3xl">What are you looking for?</p>
+          <p className="label">Type something above to start discovering.</p>
+        </div>
+      )}
     </main>
   );
 }
