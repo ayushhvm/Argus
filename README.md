@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/1d0532fd-aad4-4ee2-8bc2-16b3ac21ad05"  alt="Argus Logo" width="80" height="80">
+  <img width="1360" height="376" alt="Remove Background Image" src="https://github.com/user-attachments/assets/b935ed42-3ded-4913-8754-c235cb854d9c" />
+
   <h1 align="center">Argus</h1>
   <p align="center">
     <strong>An Intelligent Movie Discovery & Recommendation Platform</strong>
