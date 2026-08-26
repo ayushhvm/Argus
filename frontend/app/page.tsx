@@ -47,9 +47,9 @@ export default function LandingPage() {
   };
 
   // initial load
-  useState(() => {
+  useEffect(() => {
     fetchEmotion(EMOTIONS[0]);
-  });
+  }, []);
 
   return (
     <main className="min-h-screen flex flex-col">
