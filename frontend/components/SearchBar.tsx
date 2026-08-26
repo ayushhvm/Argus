@@ -11,6 +11,7 @@ interface SearchBarProps {
   large?: boolean;
   targetPath?: string;
   disableDropdown?: boolean;
+  placeholder?: string;
 }
 
 const SURPRISE_PROMPTS = [
@@ -27,6 +28,7 @@ export default function SearchBar({
   large = false,
   targetPath = "/search",
   disableDropdown = false,
+  placeholder,
 }: SearchBarProps) {
   const [query, setQuery] = useState(initialQuery);
   const [results, setResults] = useState<any[]>([]);
@@ -113,7 +115,7 @@ export default function SearchBar({
           } px-0 gap-4`}
         >
           <div className="relative flex-1 flex items-center">
-            {!query && (
+            {!query && !placeholder && (
               <div className="absolute inset-0 flex items-center pointer-events-none pl-2">
                 <AnimatePresence mode="wait">
                   <motion.p
@@ -127,6 +129,13 @@ export default function SearchBar({
                     Search for {SURPRISE_PROMPTS[promptIndex]}
                   </motion.p>
                 </AnimatePresence>
+              </div>
+            )}
+            {!query && placeholder && (
+              <div className="absolute inset-0 flex items-center pointer-events-none pl-2">
+                <p className={`text-muted font-sans ${large ? "text-xl md:text-2xl" : "text-base"}`}>
+                  {placeholder}
+                </p>
               </div>
             )}
             <input
