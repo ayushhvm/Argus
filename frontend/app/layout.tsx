@@ -6,7 +6,7 @@ import "./globals.css";
 
 const syne = Syne({
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-syne",
 });
 
@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${syne.variable} ${spaceGrotesk.variable} ${spaceMono.variable} font-sans min-h-screen bg-background text-foreground transition-colors duration-300`}
+        className={`${syne.variable} ${spaceGrotesk.variable} ${spaceMono.variable} font-sans antialiased bg-background text-foreground selection:bg-accent/30`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Cursor />

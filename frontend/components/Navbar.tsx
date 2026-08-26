@@ -45,9 +45,16 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="font-display font-black text-sm tracking-label uppercase text-foreground leading-none"
+            className="flex items-center gap-2.5 group"
           >
-            Ar<span className="text-accent">gus</span>
+            {/* Minimalist Eye / Lens Logomark */}
+            <div className="w-5 h-5 rounded-full bg-accent flex items-center justify-center shadow-[0_0_15px_rgba(255,59,47,0.4)] group-hover:shadow-[0_0_20px_rgba(255,59,47,0.6)] transition-shadow duration-300">
+              <div className="w-1.5 h-1.5 bg-background rounded-full" />
+            </div>
+            {/* Unified Wordmark */}
+            <span className="font-display font-black text-lg tracking-tight uppercase text-foreground leading-none pt-0.5">
+              Argus
+            </span>
           </Link>
 
           {/* Desktop Nav */}
