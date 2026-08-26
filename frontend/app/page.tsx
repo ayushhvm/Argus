@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Loader2 } from "lucide-react";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const TICKER_ITEMS = [
   "Semantic Retrieval",
