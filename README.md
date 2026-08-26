@@ -1,13 +1,12 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/ayushhvm/Argus/main/frontend/public/favicon.ico" alt="Argus Logo" width="80" height="80">
+  <img src="https://github.com/user-attachments/assets/1d0532fd-aad4-4ee2-8bc2-16b3ac21ad05"  alt="Argus Logo" width="80" height="80">
   <h1 align="center">Argus</h1>
   <p align="center">
     <strong>An Intelligent Movie Discovery & Recommendation Platform</strong>
-    <br />
-    Powered by state-of-the-art Information Retrieval techniques.
+    <br /> Powered by state-of-the-art Information Retrieval techniques.
   </p>
   <p align="center">
-    <a href="https://argus.vercel.app/">Live Demo</a>
+    <a href="https://argus-seven-vert.vercel.app/">Live Demo</a>
     ·
     <a href="https://github.com/ayushhvm/Argus/issues">Report Bug</a>
   </p>
