@@ -43,8 +43,8 @@ export default function MovieDetailsPage() {
       setLoading(true);
       try {
         const [mRes, sRes] = await Promise.all([
-          fetch(`http://localhost:8000/api/v1/movies/${id}`),
-          fetch(`http://localhost:8000/api/v1/movies/${id}/similar`),
+          fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/movies/${id}`),
+          fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/movies/${id}/similar`),
         ]);
         if (mRes.ok) setMovie(await mRes.json());
         if (sRes.ok) setSimilar(await sRes.json());

@@ -66,7 +66,7 @@ export default function SearchBar({
     searchTimeout.current = setTimeout(async () => {
       try {
         const res = await fetch(
-          `http://localhost:8000/api/v1/search?q=${encodeURIComponent(query.trim())}&engine=hybrid`
+          `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/search?q=${encodeURIComponent(query.trim())}&engine=hybrid`
         );
         const data = await res.json();
         setResults(data.results?.slice(0, 4) || []);

@@ -35,8 +35,8 @@ export default function AnalyticsPage() {
       setLoading(true);
       try {
         const [eRes, sRes] = await Promise.all([
-          fetch("http://localhost:8000/api/v1/analytics/evaluation"),
-          fetch("http://localhost:8000/api/v1/analytics/system"),
+          fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000') + "/api/v1/analytics/evaluation"),
+          fetch((process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000') + "/api/v1/analytics/system"),
         ]);
         if (eRes.ok) setEvalData(await eRes.json());
         if (sRes.ok) setSysData(await sRes.json());

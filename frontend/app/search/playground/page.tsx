@@ -82,7 +82,7 @@ function PlaygroundContent() {
       setLoading(true);
       try {
         const res = await fetch(
-          `http://localhost:8000/api/v1/search/playground?q=${encodeURIComponent(q)}`
+          `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/search/playground?q=${encodeURIComponent(q)}`
         );
         setData(await res.json());
       } catch (e) {

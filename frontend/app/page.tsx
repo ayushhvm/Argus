@@ -36,7 +36,7 @@ export default function LandingPage() {
     setActiveEmotion(emotion.label);
     setIsFetchingEmotion(true);
     try {
-      const res = await fetch(`http://localhost:8000/api/v1/search?q=${encodeURIComponent(emotion.query)}&engine=hybrid`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/search?q=${encodeURIComponent(emotion.query)}&engine=hybrid`);
       const data = await res.json();
       setEmotionResults(data.results || []);
     } catch (e) {

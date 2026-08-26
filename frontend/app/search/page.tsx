@@ -54,7 +54,7 @@ function SearchContent() {
       setLoading(true);
       try {
         const res = await fetch(
-          `http://localhost:8000/api/v1/search?q=${encodeURIComponent(q)}&engine=${engine}`
+          `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/search?q=${encodeURIComponent(q)}&engine=${engine}`
         );
         setData(await res.json());
       } catch (e) {

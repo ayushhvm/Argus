@@ -175,7 +175,7 @@ export default function VibeGalaxy({ movieId, movieTitle, onClose, onNodeClick }
 
   useEffect(() => {
     setLoading(true); setError(null);
-    fetch(`http://localhost:8000/api/v1/movies/${movieId}/galaxy?top_k=12`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v1/movies/${movieId}/galaxy?top_k=12`)
       .then(r => r.json())
       .then(data => { setGalaxyData(data); setLoading(false); })
       .catch(() => { setError("Failed to load. Please try again."); setLoading(false); });
