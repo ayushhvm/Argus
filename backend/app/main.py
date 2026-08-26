@@ -31,8 +31,8 @@ async def lifespan(app: FastAPI):
     print("Shutting down...")
 
 app = FastAPI(
-    title="CineSeek API",
-    description="Information Retrieval Backend for CineSeek",
+    title="Argus API",
+    description="Information Retrieval Backend for Argus",
     version="1.0.0",
     lifespan=lifespan
 )

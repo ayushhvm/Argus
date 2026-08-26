@@ -1,9 +1,9 @@
-# CineSeek
+# Argus
 
 An Intelligent Movie Discovery and Recommendation Platform using state-of-the-art Information Retrieval techniques.
 
 ## Overview
-CineSeek is a premium movie discovery platform that demonstrates core Information Retrieval concepts (Lexical, Semantic, Hybrid) while maintaining the look and feel of a modern commercial product.
+Argus is a premium movie discovery platform that demonstrates core Information Retrieval concepts (Lexical, Semantic, Hybrid) while maintaining the look and feel of a modern commercial product.
 
 ## Architecture
 - **Frontend**: Next.js 14, Tailwind CSS, Framer Motion

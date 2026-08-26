@@ -116,6 +116,7 @@ function PlaygroundContent() {
           initialQuery={q}
           targetPath="/search/playground"
           placeholder="Compare how each engine handles your query..."
+          disableDropdown
         />
       </div>
 
@@ -129,12 +130,14 @@ function PlaygroundContent() {
 
       {/* Columns */}
       {!loading && data && (
-        <div className="py-10 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-foreground/10">
+        <div className="py-10 flex md:grid md:grid-cols-3 gap-6 md:gap-0 md:divide-x divide-foreground/10 overflow-x-auto snap-x snap-mandatory hide-scrollbar">
           {ENGINES.map((eng) => {
             const results = data[eng.key];
             const latency = data[eng.latencyKey];
+            const isFastest = latency === Math.min(data.tfidf_latency_ms, data.semantic_latency_ms, data.hybrid_latency_ms);
+            
             return (
-              <div key={eng.key} className="md:px-8 first:pl-0 last:pr-0 py-8 md:py-0">
+              <div key={eng.key} className="w-[85vw] md:w-auto flex-shrink-0 snap-center md:px-8 first:pl-0 last:pr-0 py-8 md:py-0">
                 {/* Column header */}
                 <div className={`flex items-center justify-between pb-6 border-b ${eng.border}`}>
                   <div className="flex items-center gap-3">
@@ -146,9 +149,16 @@ function PlaygroundContent() {
                       <p className="label mt-1">{eng.sub}</p>
                     </div>
                   </div>
-                  <span className="font-mono text-xs text-muted bg-foreground/5 px-2 py-1 rounded">
-                    {latency.toFixed(1)}ms
-                  </span>
+                  <div className="flex items-center gap-2">
+                    {isFastest && (
+                      <span className="font-mono text-xs text-background bg-foreground px-2 py-1 rounded animate-pulse">
+                        Fastest ⚡
+                      </span>
+                    )}
+                    <span className="font-mono text-xs text-muted bg-foreground/5 px-2 py-1 rounded">
+                      {latency.toFixed(1)}ms
+                    </span>
+                  </div>
                 </div>
 
                 {/* Results */}

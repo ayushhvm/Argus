@@ -22,8 +22,10 @@ const spaceMono = Space_Mono({
   variable: "--font-space-mono",
 });
 
+import { ThemeProvider } from "@/components/ThemeProvider";
+
 export const metadata: Metadata = {
-  title: "CineSeek | Intelligent Movie Discovery",
+  title: "Argus | Intelligent Movie Discovery",
   description:
     "An IR-powered movie discovery platform using TF-IDF, Semantic FAISS, and Hybrid RRF retrieval.",
 };
@@ -32,13 +34,15 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${syne.variable} ${spaceGrotesk.variable} ${spaceMono.variable} font-sans min-h-screen bg-background text-foreground`}
+        className={`${syne.variable} ${spaceGrotesk.variable} ${spaceMono.variable} font-sans min-h-screen bg-background text-foreground transition-colors duration-300`}
       >
-        <Cursor />
-        <Navbar />
-        <div className="pt-14">{children}</div>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <Cursor />
+          <Navbar />
+          <div className="pt-14">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );

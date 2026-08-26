@@ -3,9 +3,36 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 243 241 236;
+    --foreground: 13 13 13;
+    --muted: 136 136 136;
+    --surface: 255 255 255;
+    --accent: 255 59 47;
+    --accent-foreground: 255 255 255;
+    --tfidf: 195 174 214;
+    --semantic: 148 184 232;
+    --hybrid: 232 168 176;
+    --border: rgba(13, 13, 13, 0.1);
+  }
+
+  html.dark {
+    --background: 13 13 13;
+    --foreground: 243 241 236;
+    --muted: 136 136 136;
+    --surface: 0 0 0;
+    --accent: 255 59 47;
+    --accent-foreground: 255 255 255;
+    --tfidf: 195 174 214;
+    --semantic: 148 184 232;
+    --hybrid: 232 168 176;
+    --border: rgba(243, 241, 236, 0.1);
+  }
+
   * {
     cursor: none !important;
-    @apply border-black/10 box-border;
+    @apply box-border;
+    border-color: var(--border);
   }
 
   /* Restore text cursor for editable elements */
@@ -48,15 +75,16 @@
 
   /* Hairline rule */
   .rule {
-    @apply border-t border-foreground/10 w-full;
+    @apply border-t w-full;
+    border-color: var(--border);
   }
 
   /* Glass for search bar ONLY */
   .search-glass {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgb(var(--surface) / 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgb(var(--foreground) / 0.08);
   }
 
   /* Hover link underline */
@@ -96,7 +124,7 @@
   z-index: 9999;
   width: 6px;
   height: 6px;
-  background: #0D0D0D;
+  background: rgb(var(--foreground));
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.2s;
@@ -109,7 +137,7 @@
   z-index: 9998;
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(13, 13, 13, 0.4);
+  border: 1px solid rgb(var(--foreground) / 0.4);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: transform 0.12s ease-out, width 0.2s, height 0.2s, opacity 0.2s;
@@ -118,5 +146,5 @@
 #cursor-ring.hovering {
   width: 56px;
   height: 56px;
-  border-color: #FF3B2F;
+  border-color: rgb(var(--accent));
 }

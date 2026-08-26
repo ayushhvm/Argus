@@ -62,6 +62,15 @@ export default function AnalyticsPage() {
 
   const agg = evalData.aggregate_metrics;
 
+  let bestEngine = "Semantic";
+  let maxNdcg = -1;
+  for (const eng of ["TF-IDF", "Semantic", "Hybrid"]) {
+    if (agg[eng] && agg[eng]["NDCG@5"] > maxNdcg) {
+      maxNdcg = agg[eng]["NDCG@5"];
+      bestEngine = eng;
+    }
+  }
+
   const radarData = METRICS.map((m) => ({
     metric: m,
     TFIDF: agg["TF-IDF"][m] * 100,
@@ -111,7 +120,7 @@ export default function AnalyticsPage() {
           <div className="flex items-end gap-4 justify-between">
             <h2 className="font-display font-bold text-2xl">Retrieval Evaluation</h2>
             <p className="label text-accent">
-              Best overall → Semantic
+              Best overall → {bestEngine}
             </p>
           </div>
 
@@ -132,7 +141,7 @@ export default function AnalyticsPage() {
               <tbody>
                 {(["TF-IDF", "Semantic", "Hybrid"] as const).map((eng, i) => {
                   const row = evalData.aggregate_metrics[eng];
-                  const isBest = eng === "Semantic";
+                  const isBest = eng === bestEngine;
                   return (
                     <tr
                       key={eng}

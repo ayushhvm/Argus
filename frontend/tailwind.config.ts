@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -14,17 +15,17 @@ const config: Config = {
         mono: ['var(--font-space-mono)', 'monospace'],
       },
       colors: {
-        background: "#F3F1EC",
-        foreground: "#0D0D0D",
-        muted: "#888888",
-        surface: "rgba(255,255,255,0.6)",
+        background: "rgb(var(--background) / <alpha-value>)",
+        foreground: "rgb(var(--foreground) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        surface: "rgba(var(--surface) / 0.6)",
         accent: {
-          DEFAULT: "#FF3B2F",
-          foreground: "#FFFFFF",
+          DEFAULT: "rgb(var(--accent) / <alpha-value>)",
+          foreground: "rgb(var(--accent-foreground) / <alpha-value>)",
         },
-        tfidf: "#C3AED6",
-        semantic: "#94B8E8",
-        hybrid: "#E8A8B0",
+        tfidf: "rgb(var(--tfidf) / <alpha-value>)",
+        semantic: "rgb(var(--semantic) / <alpha-value>)",
+        hybrid: "rgb(var(--hybrid) / <alpha-value>)",
       },
       letterSpacing: {
         label: "0.15em",

@@ -45,7 +45,7 @@ def _augment_with_movies(db: Session, engine_results: list) -> list:
 @router.get("", response_model=SearchResponse)
 def search_movies(
     q: str = Query(..., min_length=1),
-    engine: str = Query("semantic", regex="^(tfidf|semantic|hybrid)$"),
+    engine: str = Query("hybrid", pattern="^(tfidf|semantic|hybrid)$"),
     db: Session = Depends(get_db),
     tfidf = Depends(get_tfidf_engine),
     semantic = Depends(get_semantic_engine),
